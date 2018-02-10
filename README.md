@@ -82,12 +82,10 @@ as shown below and you are ready to go.
 You start using `BAlert` by first including the source file in the HTML `<head>`:
 
 ##### Example: including BAlert in the HTML header
-For development and testing:
 ```html
+<!-- For development and testing: -->
 <script src='/path/to/js/files/BAlert/BAlert-debug.js' type='text/javascript' charset='UTF-8'></script>
-```
-For production:
-```html
+<!-- For production: -->
 <script src='/path/to/js/files/BAlert/BAlert-mini.js' type='text/javascript' charset='UTF-8'></script>
 ```
 
