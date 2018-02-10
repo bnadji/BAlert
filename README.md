@@ -23,12 +23,12 @@ BAlert (read as "Be Alert") is a highly configurable JavaScript utility object f
 Some key BAlert features are:
 
 - It can do full **animation** during alert's display and exit.
-- It can support title and button icon images as well as **images** and **videos** as alert's content.
-- It is fully styled through **CSS style sheets** as well as inline styling.
+- It can support images for title and button icons as well as **images** and **videos** as alert's content.
+- It has infinite diversity of look and feel since it is fully styled through **CSS style sheets** as well as inline styling. 
 - It can be used by all PC and mobile **browsers** and by mobile apps (e.g., through **webview**).
 - It can be used as easily as with a **single JS line** of code or handle more complex interactive needs.
 - It supports **internal events** (e.g., button press, animation start/end, exit start/end) with callbacks.
-- It supports **external events** (e.g., window resize, orienation change) with  callbacks.
+- It supports **external events** (e.g., window resize, orientation change) with  callbacks.
 - It detects "**tap outside** or **tap inside** alert box" events and supports them by callback functions.
 - It can handle **multiple simultaneous alerts** by stacking and/or staggering alerts.
 - It is **asynchronous**, i.e., the execution does not stop when the alert is displayed.
