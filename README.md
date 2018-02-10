@@ -693,11 +693,13 @@ will have the style attributes that where globally defined through `.css` style 
 
 While the following functions can all be implemented using the `onClick()` callback function,
 they are added as boolean attributes for usage convenience:
-- `selfRemove`: a boolean (default: ***false***); if set to ***true***, the button removes itself when pressed. The button is completely removed from browser's DOM and
+- `selfRemove`: a boolean (default: ***false***); if set to ***true***, the button removes itself when pressed.
+The button is completely removed from browser's DOM and
 other buttons are rearranged to fill the emptied real estate.
-- `selfDim`: a boolean (default: ***false***); if set to ***true***, the button dims itself when pressed. The button remains functional.
-- `selfHide`: a boolean (default: ***false***); if set to ***true***, the button hides itself when pressed. The button is still in browser DOM but it is hidden from view
-and cannot be pressed.  Other buttons are not rearranged.
+- `selfDim`: a boolean (default: ***false***); if set to ***true***, the button dims itself when pressed.
+The button remains functional.
+- `selfHide`: a boolean (default: ***false***); if set to ***true***, the button hides itself when pressed.
+The button is still in browser DOM but it is hidden from view and cannot be pressed.  Other buttons are not rearranged.
 - `selfDisable`: a boolean (default: ***false***); if set to ***true***, the button disables itself when pressed so it can no longer perform any
 function if pressed again.
 
@@ -885,7 +887,7 @@ If `visible` evaluates to (or is)  ***true***, it means that the exit button wil
 If ***false***, no exit button will be constructed or displayed.
 
   The default value of the `visible` attribute is an internal function that is set to return
-***true*** if timeout is non-zero and less than 3 seconds.
+***true*** if timeout is non-zero and less than or equal to 3 seconds.
 The logic behind this internal function is that if the alert is auto exiting in 3 seconds or less, there
 is no need for an exit button.
 
@@ -913,7 +915,7 @@ This object defines the **animation** behavior of the alert when it **starts**. 
     - **"center center"** is same as **"center"** means from the center of the window
     - **[X,Y]** is an array of X and Y coordinates from which the center of the alert box starts its display animation.
     X and Y take on the same values as defined under `position.X` and `position.Y` in **"`conf.position` Attribute"** section.
-    Using **[X,Y]** along with `scale: 0` (explained below), and `getCenteralPosition()` method can help create the effect that one
+    Using **[X,Y]** along with `scale: 0` (explained below), and `getCenterPosition()` method can help create the effect that one
     alert is emerging from within another alert or another DOM element (see animation [examples](http://vinoquiz.ddns.net/BAlert/index.php)).
     
    >Note: There is only one space allowed in multi-word `dir` strings.  Also any invalid `dir` value will default to **"none"**.
@@ -1193,7 +1195,7 @@ some possibilities.
 ### `conf.iconsPath` Attribute
 ---
 This attribute is a string defining the path to icon image files. This is where `BAlert` looks for the icon files whose names were passed
-using the `icon` attribute of the alert's buttons and title.
+using the `icon` attribute of the alert's buttons, content and title.
 
 ##### Example: setting the path to icon image files
 ```javascript
