@@ -870,7 +870,7 @@ If present, `text` is ignored.
 - `raw`: a raw html string, hopefully resembling an "X", that appears on the exit button as label.  If present, `text` and `icon` are ignored.
 Note that this is considered a preformatted HTML string and therefore it is not styled with CSS styles.
 
-   >Note: If none of `text`, `icon` or `raw` are present a default text ("x") character is used.
+   >Note: If none of `text`, `icon` or `raw` are present a default text (`"x"`) character is used.
    
 - `onClick`: a function that is called when the button is pressed or **_null_** if no callback.
 - `keepAlert`: a boolean (default: **_false_**); if set to **_true_**, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
@@ -895,7 +895,7 @@ is no need for an exit button.
 ### `conf.alertStart` Attribute
 ---
 This object defines the **animation** behavior of the alert when it **starts**.  It has several attributes:
-- `duration`: a number indicating the length of time (in ms) that it takes for the alert to appear.  A **0** indicates no animation.
+- `duration`: a number indicating the length of time (in ms) that it takes for the alert to appear.  A **_0_** indicates no animation.
 - `dir`: a string (or an array) indicating the direction from which the alert enters the visible screen.  The accepted values are:
 
     - **"none"** means alert will start in place.
@@ -1061,11 +1061,13 @@ To disable the exit behavior, set this attribute to **_null_**.
 the last displayed alert will exit (Last-displayed-first-out).  Also, while an alert exit animation is in progress, a tap
 outside will have no effect on remaining alerts until the exiting alert has completed its exit.
 
+See the **Best Practices and Usage Notes** section for a description of various event timings.
+
 This example demonstrates the use of callbacks. Alert color will change to show that
 the corresponding call back was called:
 - **DisplayBegin:** alert turns _blue_ from the default color at the start of animation,
 - **onDisplayEnd:** at the end of its start animation, the alert turns _orange_ and ends up in the middle of the screen,
-- **onResize:** if window is resized  its orientation is changed (mobile devices), it turns _green_ and stays in the middle of the screen,
+- **onResize:** if window is resized or its orientation is changed (mobile devices), it turns _green_ and stays in the middle of the screen,
 - **onTapOutside:** when the alert detects a tap outside the alert, it turns _red_ and exits.
 
 The `getElement()`, `exit()` and `move()` methods will be explained in **"BAlert Methods"** section:
@@ -1472,7 +1474,8 @@ ba.setDefaultClasses("titleDiv",  "margin:0.25rem; text-align:center").display()
 
 ### `BAlert.noDefaultClasses()` Method
 ---
-Turns off the application of internal `defaultClasses` to the alert.  It is assumed that there is a formal `.css` style sheet that
+This method turns off the application of internal `defaultClasses` to the alert.
+It is assumed that there is a formal `.css` style sheet that
 contains the necessary style classes instead.
 
 >Note: One either has to use the internal `defaultClasses`, or have a `.css` style sheet for `BAlert`.
@@ -1493,9 +1496,11 @@ ba.display();
 ---
 In much the same way that `setConf()` method was the work horse for alert configuration, `display()` is the work horse for building, displaying,
 and animating the alerts after the alert has been configured. The method also sets the appropriate event handlers.
-The `display()` method has no arguments and we have seen the use of this method throughout the examples in this document.
+We have seen the use of this method throughout the examples in this document.
+If an optional argument `delay` is provided to the method (`display(delay)`), the display function is delayed for `delay` milliseconds.
 
 This method also calls `onDisplayBegin` and `onDisplayEnd` callbacks as mentioned under **"`conf.callbacks` Attribute"** section.
+See the **Best Practices and Usage Notes** section for a description of various event timings.
 
 ### `BAlert.build()` Method
 ---
@@ -1525,6 +1530,7 @@ there will be no trace of the alert in the browser DOM, internal JavaScript `DOM
 
 This method also calls `onExitBegin` and `onExitEnd` callbacks as mentioned under **"`conf.callbacks` Attribute"** section.
 
+See the **Best Practices and Usage Notes** section for a description of various event timings.
 
 ### `BAlert.move()` Method
 ---
