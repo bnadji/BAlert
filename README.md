@@ -1802,7 +1802,7 @@ from the beginning (`new BAlert(...)`) to the end (`exit()`):
   1. `BAlert.build()` is called to build the browser DOM (and internal `DOM`) structures based on the `conf` object values.
   1. `conf.callbacks.onDisplayBegin` callback function is called (if any).
   1. `conf.alertStart` animation instructions are executed to animate the alert to existance.
-  1. Alert self-destruct timer is set for `conf.timeout` milliseconds if `conf.timeout > 0`.
+  1. Alert's self-destruct timer is set for `conf.timeout` milliseconds if `conf.timeout > 0`.
   1. Various alert window event handlers (`resize`, `click`, `touchstart`) are added.
   1. `conf.callbacks.onDisplayEnd` callback function is called (if any).
 
@@ -1814,7 +1814,7 @@ initiates the exit (e.g., by pressing the exit button).  Then the following even
   1. `conf.alertExit` animation instructions are executed to animate the alert exit process.
   1. `conf.callbacks.onExitEnd` callback function is called (if any).
   1. The attached alert window event handlers (`resize`, `click`, `touchstart`) are removed.
-  1. Alert internal `DOM`, posible related DOM `<style>`, and browser DOM structures are removed.
+  1. Alert's internal `DOM` structure, related DOM `<style>` structure (if any), and the browser DOM structure are removed.
 
 There will be no artifacts left from the alert in browser's DOM or internal JavaScript structures after the final exit step.
 
