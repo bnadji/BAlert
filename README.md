@@ -1845,7 +1845,7 @@ ba.getElement("contentDiv").style.backgroundColor = "blue";
 As we have seen, **content**, **title**, **exitButton** and **mainButtons** can  have either a `raw` or a `text` attribute.
 Both attributes can have HTML strings as values.
 The main difference is that the `text` attribute values are placed inside a `<span>` and styled using the corresponding CSS styles,
-whereas `raw` attribute values are placed directly in the parent container using the `.innerHTM` and 
+whereas `raw` attribute values are placed directly in the parent container using the `.innerHTML` attribute and 
 are not styled.
 
 It is best practice to use the `text` attribute when entering simple text, e.g., `text: "File not found"`, or
