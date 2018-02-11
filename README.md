@@ -470,9 +470,9 @@ This object defines the final position of the alert on the screen.  The attribut
 - `X`: the horizontal distance of the left edge of the alert from the left edge of the window.  Valid values are:
 
     - <*num*>: (e.g., ***15***) a number, interpreted in pixels (`px`) which is the default 
-    - "<*num*>": (e.g. ***"15"***) a string containing a number (in pixels) 
-    - "<*num*>*px*": (e.g. ***"15px"***) a string starting with a number in the `px` unit -- same as above 
-    - "<*num*>*rem*": (e.g., ***"5.2rem"***) a string starting with a number in the `rem` unit
+    - "<*num*>": (e.g. **_"15"_**) a string containing a number (in pixels) 
+    - "<*num*>*px*": (e.g. _**"15px"**_) a string starting with a number in the `px` unit -- same as above 
+    - "<*num*>*rem*": (e.g., "***5.2rem***") a string starting with a number in the `rem` unit
     - "<*num*>*%*": (e.g., ***"10%"***) a string containing a number that represents the percentage of window width
     - ***"center"*** or ***"c"***: horizontally centers the alert
     
