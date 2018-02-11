@@ -1800,21 +1800,21 @@ from the beginning (`new BAlert(...)`) to the end (`exit()`):
   1. `BAlert` arguments and **Configuration Object** values are normalized and consolidated into the internal `conf` object.
   1. Start of alert display is delayed by `conf.alertStart.delay` milliseconds (if given).
   1. `BAlert.build()` is called to build the browser DOM (and internal `DOM`) structures based on the `conf` object values.
-  1. `BAlert.callbacks.onDisplayBegin` callback function is called (if any).
+  1. `conf.callbacks.onDisplayBegin` callback function is called (if any).
   1. `conf.alertStart` animation instructions are executed to animate the alert to existance.
   1. Alert self-destruct timer is set for `conf.timeout` milliseconds if `conf.timeout > 0`.
-  1. Various alert event handlers (`resize`, `orientationchange`, `click`, `touchstart`) are added.
-  1. `BAlert.callbacks.onDisplayEnd` callback function is called (if any).
+  1. Various alert window event handlers (`resize`, `click`, `touchstart`) are added.
+  1. `conf.callbacks.onDisplayEnd` callback function is called (if any).
 
 At this point, alert is displayed.  It will then wait until the self-destruct timer expires or the user
 initiates the exit (e.g., by pressing the exit button).  Then the following events take place:
 
   1. Start of alert exit is delayed by `conf.alertExit.delay`  milliseconds (if given).
-  1. `BAlert.callbacks.onExitBegin` callback function is called (if any).
-  1. `conf.alertExit` animation instructions are executed to animate the alert exit.
-  1. `BAlert.callbacks.onExitEnd` callback function is called (if any).
-  1. Various alert event handlers (`resize`, `orientationchange`, `click`, `touchstart`) are removed.
-  1. Alert internal `DOM` and browser DOM structures are removed.
+  1. `conf.callbacks.onExitBegin` callback function is called (if any).
+  1. `conf.alertExit` animation instructions are executed to animate the alert exit process.
+  1. `conf.callbacks.onExitEnd` callback function is called (if any).
+  1. The attached alert window event handlers (`resize`, `click`, `touchstart`) are removed.
+  1. Alert internal `DOM`, posible related DOM `<style>`, and browser DOM structures are removed.
 
 There will be no artifacts left from the alert in browser's DOM or internal JavaScript structures after the final exit step.
 
