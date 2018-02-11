@@ -130,7 +130,7 @@ If you want to add a title (say, "Warning") to the alert, you can use the third 
 new BAlert("WiFi is disconnected", 3000, "Warning").display();
 ```
 Now let us put some **buttons** on the alert. Let's put two buttons, one saying **Abort** and the other saying **Retry**.
-Buttons are the forth argument to `BAlert`:
+Buttons are the fourth argument to `BAlert`:
 
 ##### Example: adding buttons
 ```javascript
@@ -140,8 +140,8 @@ new BAlert("Disk access error", 0, "Warning", [
     { text: "Retry" }
 ]).display();
 ```
-The buttons are always passed as an array of button objects _[{}, {}, ...]_ as seen above.
-In the above example, the buttons don't do anything except that by default, any button that is pressed will force the alert to exit.  But in order
+Buttons are always passed as an array of button objects `[{}, {}, ...]` as seen above.  This is true even if there is only one button.
+The buttons in the above example don't do anything except that, by default, any button that is pressed will force the alert to exit.  But in order
 for the buttons to perform some meaningful function, we need to assign **callback functions** to `onClick` attribute
 to handle browser's `onclick` event:
 
