@@ -156,7 +156,7 @@ new BAlert("Disk write error", 0, "Warning", [
 Now when the **Abort** or **Retry** button is pressed, it calls the corresponding callback function.
 In both cases the alert exits (by default) after the button is pressed.
 
-If it is necessary to keep the alert up and not exit after a button is pressed, we can set the button's `keepAlert` attribute to ***true***:
+If it is necessary to keep the alert up and not exit after a button is pressed, we can set the button's `keepAlert` attribute to **_true_**:
 
 ##### Example: keeping alert alive after a button is pressed
 ```javascript
@@ -469,15 +469,15 @@ The details of each attribute of the above configuration object `conf` follows:
 This object defines the final position of the alert on the screen.  The attributes are:
 - `X`: the horizontal distance of the left edge of the alert from the left edge of the window.  Valid values are:
 
-    - <*num*>: (e.g., ***15***) a number, interpreted in pixels (`px`) which is the default 
+    - <*num*>: (e.g., **_15_**) a number, interpreted in pixels (`px`) which is the default 
     - "<*num*>": (e.g. **_"15"_**) a string containing a number (in pixels) 
-    - "<*num*>*px*": (e.g. _**"15px"**_) a string starting with a number in the `px` unit -- same as above 
-    - "<*num*>*rem*": (e.g., "***5.2rem***") a string starting with a number in the `rem` unit
-    - "<*num*>*%*": (e.g., ***"10%"***) a string containing a number that represents the percentage of window width
-    - ***"center"*** or ***"c"***: horizontally centers the alert
+    - "<*num*>*px*": (e.g. **_"15px"_**) a string starting with a number in the `px` unit -- same as above 
+    - "<*num*>*rem*": (e.g., **_"5.2rem"_**) a string starting with a number in the `rem` unit
+    - "<*num*>*%*": (e.g., **_"10%"_**) a string containing a number that represents the percentage of window width
+    - **_"center"_** or **_"c"_**: horizontally centers the alert
     
-   >Note: Negative numbers have a special interpretation.  While a positive number, e.g. ***10***, ***"10px"***, or ***"10%"*** is measured from the
-left edge of the window, a negative number, e.g., ***-10***, ***"-10px"*** or ***"-10%"*** is the distance of the the right edge of the alert box
+   >Note: Negative numbers have a special interpretation.  While a positive number, e.g. **_10_**, **_"10px"_**, or **_"10%"_** is measured from the
+left edge of the window, a negative number, e.g., **_-10_**, **_"-10px"_** or **_"-10%"_** is the distance of the the right edge of the alert box
 measured from the right side of the window.
     
 - `Y`: the vertical distance measured from the top of the alert box to the top of the window.
@@ -487,17 +487,17 @@ except replace horizontal with vertical,  width with height and left and right w
 - `staggerX`: in cases where multiple consecutive alerts are displayed that have the same `X` and `Y` position,
 this attribute defines the horizontal offset
 used on the second and subsequent alerts to stack the alerts.  Valid values are:
-    - <*num*>: (e.g., ***5***) a number (interpreted in pixels- "px", which is the default unit) 
-    - "<*num*>": (e.g., ***"5"***) a string containing a number (in pixels)
-    - "<*num*>*px*": (e.g., ***"5px"***) a string starting with a number in the `px` unit -- same as above
-    - "<*num*>*rem*": (e.g., ***"0.5rem"***) a string starting with a number in the `rem` unit
-    - "<*num*>_%_": (e.g., ***"5%"***) a string containing a number that represents the percentage of window width
-    - Any of the above strings starting with a tilde "**~**" (e.g., ***"~5px"***): the string represents the offset that alternates between
+    - <*num*>: (e.g., **_5_**) a number (interpreted in pixels- "px", which is the default unit) 
+    - "<*num*>": (e.g., **_"5"_**) a string containing a number (in pixels)
+    - "<*num*>*px*": (e.g., **_"5px"_**) a string starting with a number in the `px` unit -- same as above
+    - "<*num*>*rem*": (e.g., **_"0.5rem"_**) a string starting with a number in the `rem` unit
+    - "<*num*>_%_": (e.g., **_"5%"_**) a string containing a number that represents the percentage of window width
+    - Any of the above strings starting with a tilde "**~**" (e.g., **_"~5px"_**): the string represents the offset that alternates between
     positive and negative for each new alert.
 
    >Note: Unlike in `X` and `Y`, negative numbers in `staggerX` and `staggerY` *do not* have a special interpretation here.
-While a positive number, e.g. ***10***, ***"10px"***, or ***"10%"*** 
-is the positive offset to the right of the left edge of the previous alert, a negative number, e.g., ***-10***, ***"-10px"*** or ***"-10%"***
+While a positive number, e.g. **_10_**, **_"10px"_**, or **_"10%"_** 
+is the positive offset to the right of the left edge of the previous alert, a negative number, e.g., **_-10_**, **_"-10px"_** or **_"-10%"_**
 is the offset to the left of the left edge of the previous alert.
     
 - `staggerY`: the vertical offset used on the second and subsequent alerts when multiple alerts are stacked.
@@ -505,9 +505,9 @@ The valid values have the same interpretation as if `staggerX`,
 except replace horizontal with vertical,  width with height and left and right with top and down respectively.
 
 >Note: Units other than `px` and `rem` or other invalid strings are silently ignored and the value is assumed to be in default `px` units.
-A blank string ***""*** is interpreted as ***"0px"***.
+A blank string **_""_** is interpreted as **_"0px"_**.
 
-In the following example, (upper left corner of) the alert is placed at ***50px*** from the left edge of the window, and ***4.2rem***
+In the following example, (upper left corner of) the alert is placed at **_50px_** from the left edge of the window, and **_4.2rem_**
 from the top of the window:
 
 ##### Example: Positioning alerts to a fixed spot 
@@ -526,9 +526,9 @@ new BAlert("Hello World!", 0, null, null, {
     position: {X:"c", Y:"c"} 
 }).display();
 ```
-The following example creates three alerts that are centered horizontally.  The first one has a vertical distance of ***20%***
+The following example creates three alerts that are centered horizontally.  The first one has a vertical distance of **_20%_**
 (of the height of the window) from the top of the screen.
-The second and third alerts offset themselves from the previous alert by ***5px*** horizontally and ***0.4rem*** vertically:
+The second and third alerts offset themselves from the previous alert by **_5px_** horizontally and **_0.4rem_** vertically:
 
 ##### Example: Stacking alerts 
 ```javascript
@@ -539,9 +539,9 @@ for (var i=1; i<=3; i++)
     }).display();
 ```
 
-In the following example, we create 5 alerts. The first alert is centered horizontally and positioned ***4rem*** from the top edge of the window.
-The subsequent alerts offset themselves from the previous one by ***5px*** vertically, but have a horizontal offset
-that alternates between ***10px*** and ***-10px*** (note the use of tilde **"~"** in `staggerX`):
+In the following example, we create 5 alerts. The first alert is centered horizontally and positioned **_4rem_** from the top edge of the window.
+The subsequent alerts offset themselves from the previous one by **_5px_** vertically, but have a horizontal offset
+that alternates between **_10px_** and **_-10px_** (note the use of tilde **"~"** in `staggerX`):
 
 ##### Example: Stacking and staggering multiple alerts 
 ```javascript
@@ -682,25 +682,25 @@ Each button object has the following attributes:
 - `raw`: a preformatted HTML string to use as button label.  If present, `text` and `icon` are ignored.  Note that
 this is considered a preformatted HTML string and therefore it is not styled with CSS styles.
 - `index`: is the index number of the button.  Button indices start from 0 (left-most button).
-- `onClick`: a function that is called when the button is pressed or ***null*** if no callback.
+- `onClick`: a function that is called when the button is pressed or **_null_** if no callback.
 The callback function always receives two arguments; first is a reference to the alert object, and the second is a reference to
 the button object that was pressed.  See the examples below.
-- `keepAlert`: a boolean (default: ***false***); if set to ***true***, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
-- `inlineStyle`: a string (default: ***null***); if set to a string, the value outlines local inline changes to global CSS styles for the button.
+- `keepAlert`: a boolean (default: **_false_**); if set to **_true_**, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
+- `inlineStyle`: a string (default: **_null_**); if set to a string, the value outlines local inline changes to global CSS styles for the button.
 For example, if `inlineStyle` is set to `"color: yellow; background-color: red"`, the button label will be displayed as yellow text on red background,
 replacing any other `.css` background or text color specifications. However, other buttons
 will have the style attributes that where globally defined through `.css` style sheets or built-in default styles.
 
 While the following functions can all be implemented using the `onClick()` callback function,
 they are added as boolean attributes for usage convenience:
-- `selfRemove`: a boolean (default: ***false***); if set to ***true***, the button removes itself when pressed.
+- `selfRemove`: a boolean (default: **_false_**); if set to **_true_**, the button removes itself when pressed.
 The button is completely removed from browser's DOM and
 other buttons are rearranged to fill the emptied real estate.
-- `selfDim`: a boolean (default: ***false***); if set to ***true***, the button dims itself when pressed.
+- `selfDim`: a boolean (default: **_false_**); if set to **_true_**, the button dims itself when pressed.
 The button remains functional.
-- `selfHide`: a boolean (default: ***false***); if set to ***true***, the button hides itself when pressed.
+- `selfHide`: a boolean (default: **_false_**); if set to **_true_**, the button hides itself when pressed.
 The button is still in browser DOM but it is hidden from view and cannot be pressed.  Other buttons are not rearranged.
-- `selfDisable`: a boolean (default: ***false***); if set to ***true***, the button disables itself when pressed so it can no longer perform any
+- `selfDisable`: a boolean (default: **_false_**); if set to **_true_**, the button disables itself when pressed so it can no longer perform any
 function if pressed again.
 
 The  examples below shows how one can create alerts with one time use buttons.  The first one prompts the user to **archive** and/or **submit**
@@ -872,22 +872,22 @@ Note that this is considered a preformatted HTML string and therefore it is not 
 
    >Note: If none of `text`, `icon` or `raw` are present a default text ("x") character is used.
    
-- `onClick`: a function that is called when the button is pressed or ***null*** if no callback.
-- `keepAlert`: a boolean (default: ***false***); if set to ***true***, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
+- `onClick`: a function that is called when the button is pressed or **_null_** if no callback.
+- `keepAlert`: a boolean (default: **_false_**); if set to **_true_**, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
 This is only useful if you want to manage the alert's exit through your own callback function.
-   >Note: You can override the default (exit) action of this button by setting `keepAlert` to ***true***
+   >Note: You can override the default (exit) action of this button by setting `keepAlert` to **_true_**
 and then managing the exit through your own `onClick` callback function which would optionally call the `exit()` method at the end to exit.
 
-- `inlineStyle`: a string (default: ***null***); if set to a string, the value outlines local inline changes to global CSS styles for the button.
+- `inlineStyle`: a string (default: **_null_**); if set to a string, the value outlines local inline changes to global CSS styles for the button.
 For example,
 if `inlineStyle` is set to `"float: left; color: red"`, the exit button "X" is turned red and is moved to the upper left corner of the alert box
 instead of the usual upper right.
 - `visible`: a boolean or a function returning a boolean. If `visible` is a function, a reference to the alert object is passed to it as the argument.
-If `visible` evaluates to (or is)  ***true***, it means that the exit button will be built and displayed.
-If ***false***, no exit button will be constructed or displayed.
+If `visible` evaluates to (or is)  **_true_**, it means that the exit button will be built and displayed.
+If **_false_**, no exit button will be constructed or displayed.
 
   The default value of the `visible` attribute is an internal function that is set to return
-***true*** if timeout is non-zero and less than or equal to 3 seconds.
+**_true_** if timeout is non-zero and less than or equal to 3 seconds.
 The logic behind this internal function is that if the alert is auto exiting in 3 seconds or less, there
 is no need for an exit button.
 
@@ -1037,10 +1037,10 @@ new BAlert("Allies Land in France", 0, "Headline News", null, {
 ---
 `BAlert` supports multiple callbacks for the following internal and external events.  All callback functions
 receive a reference to the alert object as their argument:
-- `onDisplayBegin`: this function is called just before alert starts to display (or begin the display animation).  Default is ***null***.
-- `onDisplayEnd`: this function is called after alert has displayed (or ended the display animation).  Default is ***null***.
-- `onExitBegin`: this function is called just before alert starts to exit (or begin the exit animation).  Default is ***null***.
-- `onExitEnd`: this function is called after alert has finished exiting (or ended the exit animation).  Default is ***null***.
+- `onDisplayBegin`: this function is called just before alert starts to display (or begin the display animation).  Default is **_null_**.
+- `onDisplayEnd`: this function is called after alert has displayed (or ended the display animation).  Default is **_null_**.
+- `onExitBegin`: this function is called just before alert starts to exit (or begin the exit animation).  Default is **_null_**.
+- `onExitEnd`: this function is called after alert has finished exiting (or ended the exit animation).  Default is **_null_**.
 
    >Note: if no start animation is requested, then `onDisplayBegin` and `onDisplayEnd` are nearly simultaneous.
 Also, if there is no exit animation, then `onExitBegin` and `onExitEnd` are nearly simultaneous.
@@ -1050,12 +1050,12 @@ Default is an internal function that calls the `move()` method and repositions t
 according to the `conf.position` values.  So, for example, if the alert was set to be at the center of the screen,
 (e.g., `position: {X:"center", Y:"center"}`), 
 it is repositioned to remain at the
-center of the screen when the window is resized.  To disable this behavior, set this attribute to ***null***.
+center of the screen when the window is resized.  To disable this behavior, set this attribute to **_null_**.
 - `onTapOutside`: this function is called when user clicks or taps outside of the alert box.  Default is an internal function
 that will force the alert to exit (as if user has pressed the exit button).
 Tapping outside the alert to exit is a common behavior in most apps, especially mobile apps.
-To disable the exit behavior, set this attribute to ***null***.
-- `onTapInside`: this function is called when user clicks or taps inside the alert box.  Default is ***null***.
+To disable the exit behavior, set this attribute to **_null_**.
+- `onTapInside`: this function is called when user clicks or taps inside the alert box.  Default is **_null_**.
 
    >Note: If there are multiple alerts present on the screen and a tap happens outside all of them,
 the last displayed alert will exit (Last-displayed-first-out).  Also, while an alert exit animation is in progress, a tap
@@ -1138,7 +1138,7 @@ In the absence of a `.css` style sheet file, `conf.defaultClasses` internal CSS 
 for the alert.
 This object has two attributes:
 - `apply`: this boolean defines whether internal default classes should be used to build the class definitions for the alert or not.
-  >Note: `apply` must be set to ***false*** when you want to use a `.css` style sheet. If set to ***true***, 
+  >Note: `apply` must be set to **_false_** when you want to use a `.css` style sheet. If set to **_true_**, 
 `.css` classes are ignored, even if they are present. 
 
 - `values`: an object with the same attribute names shown in the table in **"Alert DOM Structure"** section,
@@ -1147,10 +1147,10 @@ should be done through `.css` style sheets.
 
 See **BAlert `setDefaultClasses()` Method** for more details.
 
-The default value for `apply` is ***true*** which means the internal `defaultClasses` will be applied to alerts by default. This is initially useful 
+The default value for `apply` is **_true_** which means the internal `defaultClasses` will be applied to alerts by default. This is initially useful 
 when you do not have a `.css` style sheet to style the alerts, and you are just trying to test or debug the functionality of the alerts.
-So by setting this attribute to ***true***, `BAlert` applies some minimal internal style classes to the alert.
-But once you get into production mode, this value must be set to ***false*** and `.css` style sheet file be used instead.
+So by setting this attribute to **_true_**, `BAlert` applies some minimal internal style classes to the alert.
+But once you get into production mode, this value must be set to **_false_** and `.css` style sheet file be used instead.
 
 See also the **"Alert DOM Structure"** section and **"BAlert `noDefaultClasses()` Method"** section for more details.
 
@@ -1600,7 +1600,7 @@ var ba = new BAlert({text: "Choose Archive or Submit"},
 ).display();
 ```
 
-One could have done this by simply setting the attribute `selfDisable` to ***true*** for the **Submit** button.
+One could have done this by simply setting the attribute `selfDisable` to **_true_** for the **Submit** button.
 
 
 ### `BAlert.enable()` Method
@@ -1715,7 +1715,7 @@ So this method has no effect unless used with `BAlert-debug.js` version.
 ### `BAlert.reset()` Method
 ---
 This method sets the internal configuration object  to its default value
-and it also resets internal `DOM` structure to ***null***.  All changes made to the configuration object through `BAlert`
+and it also resets internal `DOM` structure to **_null_**.  All changes made to the configuration object through `BAlert`
 arguments or `setconf()` are reset to original default values.  This method is useful when you are using the same instantiation of
 `BAlert` for multiple alerts, and you want to reset it between uses.
 
