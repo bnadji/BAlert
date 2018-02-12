@@ -451,7 +451,7 @@ var conf = {
     /////////
     // Misc
     /////////
-    iconsPath: "",          // path (relative or absolute) for title and button icon image files
+    iconsPath: "",          // path (relative or absolute) for title, content, and button icon image files
     startingZIndex: 1000,   // value set higher than largest z-index the app may use
     timeout: 0,             // alert's time to live in (ms) -- 0 means stay up until exited by user
     DEBUG: 0                // debug level, from 0-15 -- see setDebug() method for details.
@@ -469,7 +469,7 @@ The details of each attribute of the above configuration object `conf` follows:
 This object defines the final position of the alert on the screen.  The attributes are:
 - `X`: the horizontal distance of the left edge of the alert from the left edge of the window.  Valid values are:
 
-    - <*num*>: (e.g., **_15_**) a number, interpreted in pixels (`px`) which is the default 
+    - <*num*>: (e.g., **_15_**) a number, interpreted in pixels (`px`) which is the default unit
     - "<*num*>": (e.g. **_"15"_**) a string containing a number (in pixels) 
     - "<*num*>*px*": (e.g. **_"15px"_**) a string starting with a number in the `px` unit -- same as above 
     - "<*num*>*rem*": (e.g., **_"5.2rem"_**) a string starting with a number in the `rem` unit
@@ -487,7 +487,7 @@ except replace horizontal with vertical,  width with height and left and right w
 - `staggerX`: in cases where multiple consecutive alerts are displayed that have the same `X` and `Y` position,
 this attribute defines the horizontal offset
 used on the second and subsequent alerts to stack the alerts.  Valid values are:
-    - <*num*>: (e.g., **_5_**) a number (interpreted in pixels- "px", which is the default unit) 
+    - <*num*>: (e.g., **_5_**) a number (interpreted in pixels- `px`, which is the default unit) 
     - "<*num*>": (e.g., **_"5"_**) a string containing a number (in pixels)
     - "<*num*>*px*": (e.g., **_"5px"_**) a string starting with a number in the `px` unit -- same as above
     - "<*num*>*rem*": (e.g., **_"0.5rem"_**) a string starting with a number in the `rem` unit
@@ -557,7 +557,7 @@ for (var i=1; i<=5; i++)
 ---
 There is no such thing as `conf.size`. You may have noticed the absence of the `size` attribute in the configuration object.  This is intentional.
 Browsers along with the style sheets are in the best position to find the optimal size for the alerts.  So we
-do not explicitly define them.  You can, however, define alert *height* and *width* through CSS style classes or local styling, or use style
+do not explicitly define them.  You can, however, define alert *height* and *width* through CSS style classes or inline styling, or use style
 sheet class attributes such as *max-width* and *max-height* to control the size.
 
 
