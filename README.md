@@ -553,7 +553,7 @@ for (var i=1; i<=5; i++)
 ```
 
 
-### `conf.size` Attribute
+### `conf.size` Attribute 
 ---
 There is no such thing as `conf.size`. You may have noticed the absence of the `size` attribute in the configuration object.  This is intentional.
 Browsers along with the style sheets are in the best position to find the optimal size for the alerts.  So we
@@ -572,7 +572,7 @@ This text is placed in the DOM **contentDiv** `<div>` inside a `<span>` with the
 and is styled with the CSS class name **bajs\_contentText**.
 
 - `raw`: It contains a preformatted HTML string as the message content of the alert.  If present, `text` and `icon` attributes are ignored, 
- the **contentIcon** `<img>` and **contectText** `<span>` elements are not created and the value of this attribute is placed in **contentDiv**'s
+ the **contentIcon** `<img>` and **contentText** `<span>` elements are not created and the value of this attribute is placed in **contentDiv**'s
 `innerHTML` as is.
 Note that since this is preformatted HTML, no CSS classes are used to style it.
 
