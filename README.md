@@ -1246,9 +1246,7 @@ produce any debugging information regardless of the value of this attribute.
 
 # BAlert Methods
 
-Before we talk about the methods, its good to know how alerts are created and used:
-#### How alerts are created?
-Alerts are created in two steps:
+Before we talk about the methods, its good to know how alerts are created and used. Alerts are created in two steps:
 1. Collect, merge and reconcile all options to create the alert's **Configuration Object** that
 we saw in **"Configuration Object"** section.
 1. Use the **Configuration Object** to build and display (and animate) the alert.
@@ -1527,10 +1525,13 @@ ba.display();
 ### `BAlert.exit()` Method
 ---
 The `exit(delay)` method is the opposite of the `display()` method.  It forces the alert to gracefully exit,
-using animation if defined.  It also removes and cleans up event handlers.  If the optional `delay` argument (integer) is provided,
+using animation if defined.  It also removes and cleans up event handlers.  
+The internal and browser `DOM` structure and its artifacts are completely removed.
+So after `exit()`, there will be no trace of the alert in the browser DOM, internal JavaScript `DOM` structure,
+or in window event handlers.
+
+If the optional `delay` argument (integer) is provided,
 it delays the exit process by `delay` milliseconds.
-The alert and it artifacts are completely removed from browser DOM as well as the internal `DOM` structure we saw before.  So after `exit()`,
-there will be no trace of the alert in the browser DOM, internal JavaScript `DOM` structure, or in window event handlers.
 
 This method also calls `onExitBegin` and `onExitEnd` callbacks as mentioned under **"`conf.callbacks` Attribute"** section.
 
@@ -1538,7 +1539,7 @@ See the **Best Practices and Usage Notes** section for a description of various 
 
 ### `BAlert.move()` Method
 ---
-This method moves the alert box to a new location.  The method takes on zero, one or two arguments: `move()`, `move([X,Y])`, or 
+This method moves the alert box to a new location.  The method takes on zero, one, or two arguments: `move()`, `move([X,Y])`, or 
 `move(X,Y)`.
 
 The arguments, `X` and `Y`, have the same definitions that we saw for `conf.position.X` and `conf.position.Y` in **"`conf.position` Attribute"** section.
