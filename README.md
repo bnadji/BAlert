@@ -1081,14 +1081,14 @@ function setColor(alrt, color) {
 new BAlert({text: "Hello world"}, 0, null, null,  {
   alertStart: {dir: "top", scale: 0, duration: 1000, func: "ease-in"},
   alertExit:  {dir: "bottom", scale: 0, duration:  1000, func: "ease-out"},     
-    callbacks:
-        {
-            onDisplayBegin: function(alrt) { setColor(alrt, "blue");},
-            onDisplayEnd: function(alrt) { setColor(alrt, "orange");},
-            onResize: function(alrt) { setColor(alrt, "green"); alrt.move();},
-            onTapOutside: function(alrt) { setColor(alrt, "red"); alrt.exit();}
-        }
+  callbacks:
+    {
+      onDisplayBegin: function(alrt) { setColor(alrt, "blue");},
+      onDisplayEnd: function(alrt) { setColor(alrt, "orange");},
+      onResize: function(alrt) { setColor(alrt, "green"); alrt.move();},
+      onTapOutside: function(alrt) { setColor(alrt, "red"); alrt.exit();}
     }
+  }
 ).display();
 ```
 
@@ -1174,23 +1174,22 @@ var localConf = {
   content: {text: "Information Saved Successfully."},
   title: {text: "Saved"},
   mainButtons:
-    [
-      {
-        text: "Post",
-        inlineStyle: "color: green; border-radius: 0;",
-        onClick: function() { console.log("Post was pushed"); } },
-      {
-        text: "Exit", 
-        inlineStyle: "color: red; border-radius: 0;",
-        onClick: function() { console.log("Exit was pushed"); } }
-    ],
+    [{
+      text: "Post",
+      inlineStyle: "color: green; border-radius: 0;",
+      onClick: function() { console.log("Post was pushed"); } 
+    },{
+      text: "Exit", 
+      inlineStyle: "color: red; border-radius: 0;",
+      onClick: function() { console.log("Exit was pushed"); } 
+    }],
   inlineStyles: {contentDiv:  "background-color: green; color: white"},
 };
 
 new BAlert().setConf(localConf).display();
 ```
 
->Note: With the combination of `.css` style sheets (or internal default classes), along with the `localStyles` and `localStyle`
+>Note: With the combination of `.css` style sheets (or internal default classes), along with the `inlineStyles` and `inlineStyle`
 inline style changes, one has full flexibility on how the alert should look.  See [**examples**](http://vinoquiz.ddns.net/BAlert/index.php) for
 some possibilities.
 
@@ -1230,12 +1229,13 @@ It is unlikely that you have to change this value.
 ### `conf.timeout` Attribute
 ---
 This is an integer indicating the alert's time to live in milliseconds.
+If set to a positive value the alert will automatically exit after the given number of milliseconds. 
 Default is **0** which indicates that the alert will not auto exit.
 
 
 ### `conf.DEBUG` Attribute
 ---
-An integer indicating the `BAlert` debug level for producing debug messages on JavaScript console.
+This is an integer indicating the `BAlert` debug level for producing debug messages on JavaScript console.
 Default is **0** which means no debugging messages are produced.
 See the **"BAlert `setDebug()` Method"** section for more detail.
 
@@ -1245,6 +1245,9 @@ produce any debugging information regardless of the value of this attribute.
 
 
 # BAlert Methods
+
+Before we talk about the methods, its good to know how alerts are created and used:
+#### How alerts are created?
 Alerts are created in two steps:
 1. Collect, merge and reconcile all options to create the alert's **Configuration Object** that
 we saw in **"Configuration Object"** section.
@@ -1258,6 +1261,7 @@ We'll try to make that distinction for each method, when it is not clear.
 displaying and animating the alerts (after it has been configured) is `display()`.
 Chances are that in most applications, these are the only two methods that one ever needs. 
 
+#### BAlert methods are cascadable
 For the most part, BAlert methods are cascadable, meaning that they can be placed one after the other on the same line
 using the dot notation.  That is because methods that have no explicit return value will return a reference to the alert itself:
 
@@ -1289,7 +1293,7 @@ one or two argument:
 var ba = new BAlert();
 ba.setConf( {alertExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );      
 ```
-In fact, the entire configuration object **conf** that we saw in **"Configuration Object"** section can be be dropped in,
+In fact, the entire configuration object `conf` that we saw in **"Configuration Object"** section can be be dropped in,
 in one shot, using this method.
 
 ##### Example: Using setConf() method with one argument
