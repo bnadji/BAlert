@@ -17,8 +17,6 @@ BAlert (read as "Be Alert") is a highly configurable JavaScript utility object f
 - [Acknowledgement](#acknowledgement)
 - [Contact](#contact)
 
-
-
 # BAlert Key Features 
 Some key BAlert features are:
 
@@ -517,6 +515,16 @@ new BAlert("Hello World!", 0, null, null, {
     position: {X:"50px", Y:"4.2rem"} 
 }).display();
 ```
+In the following example, the alert is placed at **_10px_** off from the bottom right corner of the window:
+
+##### Example: Positioning alerts to a fixed spot 
+```javascript
+// alert placed close to bottom right corner
+new BAlert("Hello World!", 0, null, null, {
+    position: {X:"-10px", Y:"-10px"} 
+}).display();
+```
+
 The following example completely aligns the center of the alert box with the center of the window:
 
 ##### Example: Centering an alert 
@@ -1706,10 +1714,10 @@ on the JavaScript console.  An attempt is made to make debug messages helpful to
 - **n=1** displays the trace of activities inside BAlert as the alert is built, displayed and animated.
 - **n=2** dumps the alert's main **Configuration Object**.
 - **n=4** dumps alert's traversed browser DOM structure.
-- **n=8** dumps the alert's internal `defaultClasses` in form of `.css` class definitions discussed
+- **n=8** dumps the alert's internal `defaultClasses` in form of `.css` class definitions 
 under **"BAlert `getDefaultClasses()` Method"** section.
 
-The above bit-positioned option numbers can be combined by adding their values, e.g., `setDebug(5)` outputs both the alert's activity traces and
+The above bit-positioned option numbers can be combined by adding their values, e.g., `setDebug(5)` outputs both the alert's activity traces and its
  browser DOM structure.
 `setDebug(15)` dumps everything.
 
@@ -1727,7 +1735,7 @@ So this method has no effect unless used with `BAlert-debug.js` version.
 ---
 This method sets the internal configuration object  to its default value
 and it also resets internal `DOM` structure to **_null_**.  All changes made to the configuration object through `BAlert`
-arguments or `setconf()` are reset to original default values.  This method is useful when you are using the same instantiation of
+arguments or `setConf()` are reset to original default values.  This method is useful when you are using the same instance of
 `BAlert` for multiple alerts, and you want to reset it between uses.
 
 >Note: `reset()` method does not remove the alert from the display or touch the alert's browser DOM structures (if it is already built).
@@ -1837,8 +1845,8 @@ for more detail.
 
   
 All of the above styling is done before the alert is built/displayed and the browser DOM element exists.  After the alert is built or displayed, the only way
-to change its style is by getting a reference to it's browser DOM element using `getElement()` method, and change it's style using the usual JavaScript methods.  In
-the following example, the color of the content area of the alert is changed to *blue* after it has been built and displayed:
+to change its style is by getting a reference to it's browser DOM element using `getElement()` method, and change it's style using the usual JavaScript methods.
+In the following example, the color of the content area of the alert is changed to *blue* after it has been built and displayed:
 ```javascript
 // changing element attribute after it has been built
 var ba = new BAlert("Hello World").display();
