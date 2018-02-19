@@ -938,9 +938,10 @@ A positive number rotates clockwise, a negative number rotates counter-clockwise
 
    >Note: To be readable, alerts always end up in the natural upright position at the end of animation,
 even if `rotate` is not a whole number.  For example, a
-value of **0.5** for `rotate` means that the alert will start from an upside down position and finishes in the normal upright position.
+value of **0.5** for `rotate` means that the alert will start from an upside down position and finishes in the normal upright position
+after a 180 degree turn.
 
-- `func`: a string indication the transition timing function.  This mathematical function outlines how fast the alert animation behavior
+- `func`: a string indicating the transition timing function.  This mathematical function outlines how fast the alert animation behavior
 changes. It can take on values such as:
 
     - **"linear"**
@@ -948,7 +949,7 @@ changes. It can take on values such as:
     - **"ease-out"**
     - **"ease-in-out"**
     - **"cubic-bezier(n1, n2, n3, n4)"**, e.g., **"cubic-bezier(.39, .5, .87, .51)"**
-    - ...etc. Any value that is accepted by the **CSS transition-timing-function** standard is accepted here.
+    - ...etc. Any value that is accepted by the **CSS transition-timing-function** standard is also accepted here.
 
 The following example, uses an `alertStart` configuration that will fly in the alert from upper left corner of the screen,
 expanding its size from a dot to full size and rotating it 1.5 times in one second, using the timing function **ease-in-out**:
