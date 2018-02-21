@@ -342,117 +342,122 @@ you only need to supply the options when you want to override the defaults:
 ```javascript
 var conf = {
 
-    //////////////
-    // Structure
-    //////////////
-    position: {
-        X: "center",        // X position after alert is displayed -- see below for values
-        Y: "center",        // Y position after alert is displayed -- see below for values
-        staggerX: "~5px",   // horizontal distance of alerts from each other when stacking alerts
-        staggerY: "5px"     // vertical distance of alerts from each other when stacking alerts
-    },
-    content:  {
-        icon: "",           // alert's content icon image file name
-        text: "",           // alert's content text
-        raw: "",            // alert's content raw html -- if given, text and icon are ignored
-    },
-    title: {
-        icon: "",           // alert's title icon image file name
-        text: "",           // alert's title text
-        raw: "",            // alert's title raw html -- if given, text and icon are ignored
-    },
-    mainButtons: [              // an array of objects, each of which is an alert button
-        {
-            icon: "",           // button label icon image file name
-            text: "",           // button label text
-            raw: "",            // button raw -- if given, text and icon are ignored
-            onClick: null,      // button callback function
-            keepAlert: false,   // should alert stay up when the button is pressed?
-            inlineStyle: "",    // a string containing inline CSS styles for this button
-            selfRemove: false,  // should button remove itself when it is pressed?
-            selfDim: false,     // should button dim itself when it is pressed?
-            selfHide: false,    // should button hide itself when it is pressed?
-            selfDisable: false  // should button disable itself when it is pressed?
-        }
-        // more buttons         // additional buttons -- mainButtons is an array of button objects
-    ],
-    
-    exitButton: {               // the top corner "X" button used to exit alert
-        icon: "",               // icon image file name for exit button label. If present, text is ignored
-        text: "&times;",        // text string (character) used for "X" label on the exit button
-        raw: "",                // raw html used as "X" for exit.  If present, text and icon are ignored
-        onClick: null,          // button callback function
-        keepAlert: false,       // should alert stay up when the button is pressed?
-        visible: function(){}   // should exit button be visible? -- default is an internal boolean function
-                                // other self* attributes are also supported but not useful
-    },
-    
-    //////////////
-    // Animation
-    /////////////
-    alertStart: {               // controls alert's start animation
-        duration: 1000,         // alert start animation duration (ms) - 0 means no animation
-        dir: "top",             // direction from which the alert appears -- see below for values
-        scale: 0,               // starting size factor of the alert before animation
-        rotate: 0,              // number of rotations of the alert during display animation
-        delay: 0,               // induced delay (in ms) before the start of display action
-        func: "ease-in"         // CSS transition-timing-function name
-    },
-    
-    alertExit: {                // controls alert's exit animation
-        duration: 500,          // alert exit animation duration (ms) - 0 means no animation
-        dir: "none",            // direction to which the alert exits -- see below for values
-        scale: 0,               // ending size factor of the alert after animation
-        rotate: 0,              // number of rotations of the alert during exit animation
-        func: "ease-out"        // CSS transition-timing-function name
-    }, 
+  //////////////
+  // Structure
+  //////////////
+  
+  position: {
+    X: "center",        // X position after alert is displayed -- see below for values
+    Y: "15%",           // Y position after alert is displayed -- see below for values
+    staggerX: "~5px",   // horizontal distance of alerts from each other when stacking alerts
+    staggerY: "5px"     // vertical distance of alerts from each other when stacking alerts
+  },
+  content:  {
+    icon: "",           // alert's content icon image file name
+    text: "",           // alert's content text
+    raw: "",            // alert's content raw html -- if given, text and icon are ignored
+  },
+  title: {
+    icon: "",           // alert's title icon image file name
+    text: "",           // alert's title text
+    raw: "",            // alert's title raw html -- if given, text and icon are ignored
+  },
+  mainButtons: [              // an array of objects, each of which is an alert button
+    {
+      icon: "",           // button label icon image file name
+      text: "",           // button label text
+      raw: "",            // button raw -- if given, text and icon are ignored
+      onClick: null,      // button callback function
+      keepAlert: false,   // should alert stay up when the button is pressed?
+      inlineStyle: "",    // a string containing inline CSS styles for this button
+      selfRemove: false,  // should button remove itself when it is pressed?
+      selfDim: false,     // should button dim itself when it is pressed?
+      selfHide: false,    // should button hide itself when it is pressed?
+      selfDisable: false  // should button disable itself when it is pressed?
+    }
+    // more buttons         // additional buttons -- mainButtons is an array of button objects
+  ],
+  
+  exitButton: {               // the top corner "X" button used to exit alert
+    icon: "",               // icon image file name for exit button label. If present, text is ignored
+    text: "&times;",        // text string (character) used for "X" label on the exit button
+    raw: "",                // raw html used as "X" for exit.  If present, text and icon are ignored
+    onClick: null,          // button callback function
+    keepAlert: false,       // should alert stay up when the button is pressed?
+    visible: function(){}   // should exit button be visible? -- default is an internal boolean function
+                            // other self* attributes are also supported but not useful
+  },
+  
+  //////////////
+  // Animation
+  /////////////
+  
+  alertStart: {               // controls alert's start animation
+    duration: 500,          // alert start animation duration (ms) - 0 means no animation
+    dir: "top",             // direction from which the alert appears -- see below for values
+    scale: 0,               // starting size factor of the alert before animation
+    rotate: 0,              // number of rotations of the alert during display animation
+    delay: 0,               // induced delay (in ms) before the start of display action
+    func: "ease-in"         // CSS transition-timing-function name
+  },
+  
+  alertExit: {                // controls alert's exit animation
+    duration: 350,          // alert exit animation duration (ms) - 0 means no animation
+    dir: "none",            // direction to which the alert exits -- see below for values
+    scale: 0,               // ending size factor of the alert after animation
+    rotate: 0,              // number of rotations of the alert during exit animation
+    func: "ease-out"        // CSS transition-timing-function name
+  }, 
 
-    //////////////
-    // Callbacks
-    //////////////
-    callbacks: {                    // callback functions handling internal and external events
-        onDisplayBegin: null,       // function called before alert starts to display
-        onDisplayEnd: null,         // function called after alert has displayed
-        onExitBegin: null,          // function called before alert starts to exit 
-        onExitEnd: null,            // function called after alert has finished exiting
-        onResize: function(){},     // function called when window resizes -- see below for default value
-        onTapOutside: function(){}, // function called when user clicks outside of alert box -- see below
-        onTapInside: null           // function called when user clicks inside of alert box
-    },
+  //////////////
+  // Callbacks
+  //////////////
+  
+  callbacks: {                    // callback functions handling internal and external events
+    onDisplayBegin: null,       // function called before alert starts to display
+    onDisplayEnd: null,         // function called after alert has displayed
+    onExitBegin: null,          // function called before alert starts to exit 
+    onExitEnd: null,            // function called after alert has finished exiting
+    onResize: function(){},     // function called when window resizes -- see below for default value
+    onTapOutside: function(){}, // function called when user clicks outside of alert box -- see below
+    onTapInside: null           // function called when user clicks inside of alert box
+  },
 
-    ///////////////////
-    // classes & Styles
-    ///////////////////
-    classPrefix: "bajs_", // prefix for CSS class names, e.g., bajs_containerDiv for containerDiv
-    defaultClasses: {
-      apply: true,        // (boolean) Should built-in CSS style sheet be applied?
-      values: {}          // built-in CSS styling class strings -- removed for brevity
-    },
+  ///////////////////
+  // classes & Styles
+  ///////////////////
+  
+  classPrefix: "bajs_", // prefix for CSS class names, e.g., bajs_containerDiv for containerDiv
+  defaultClasses: {
+    apply: true,        // (boolean) Should built-in CSS style sheet be applied?
+    values: {}          // built-in CSS styling class strings -- removed for brevity
+  },
 
-    inlineStyles: {        // inline style strings for various alert element parts 
-      containerDiv: "",
-      alertBoxDiv: "",
-      titleDiv: "",
-      titleIcon: "",
-      titleText: "",
-      contentDiv: "",
-      contentText: "",
-      exitButton: "",
-      exitButtonIcon: "",
-      exitButtonText: "",
-      mainButtonsDiv: "",
-      mainButtons: "",
-      mainButtonsIcon: "",
-      mainButtonsText: ""       
-    },        
+  inlineStyles: {        // inline style strings for various alert element parts 
+    containerDiv: "",
+    alertBoxDiv: "",
+    titleDiv: "",
+    titleIcon: "",
+    titleText: "",
+    contentDiv: "",
+    contentText: "",
+    exitButton: "",
+    exitButtonIcon: "",
+    exitButtonText: "",
+    mainButtonsDiv: "",
+    mainButtons: "",
+    mainButtonsIcon: "",
+    mainButtonsText: ""       
+  },        
 
-    /////////
-    // Misc
-    /////////
-    iconsPath: "",          // path (relative or absolute) for title, content, and button icon image files
-    startingZIndex: 1000,   // value set higher than largest z-index the app may use
-    timeout: 0,             // alert's time to live in (ms) -- 0 means stay up until exited by user
-    DEBUG: 0                // debug level, from 0-15 -- see setDebug() method for details.
+  /////////
+  // Misc
+  /////////
+  
+  iconsPath: "",          // path (relative or absolute) for title, content, and button icon image files
+  startingZIndex: 1000,   // value set higher than largest z-index the app may use
+  timeout: 0,             // alert's time to live in (ms) -- 0 means stay up until exited by user
+  DEBUG: 0                // debug level, from 0-15 -- see setDebug() method for details.
 };
 ```
 Below is the detailed explanation of each configuration object attribute:
