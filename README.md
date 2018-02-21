@@ -362,7 +362,7 @@ var conf = {
     text: "",           // alert's title text
     raw: "",            // alert's title raw html -- if given, text and icon are ignored
   },
-  mainButtons: [              // an array of objects, each of which is an alert button
+  mainButtons: [          // an array of objects, each of which is an alert button
     {
       icon: "",           // button label icon image file name
       text: "",           // button label text
@@ -375,10 +375,10 @@ var conf = {
       selfHide: false,    // should button hide itself when it is pressed?
       selfDisable: false  // should button disable itself when it is pressed?
     }
-    // more buttons         // additional buttons -- mainButtons is an array of button objects
+    // more buttons       // additional buttons -- mainButtons is an array of button objects
   ],
   
-  exitButton: {               // the top corner "X" button used to exit alert
+  exitButton: {             // the top corner "X" button used to exit alert
     icon: "",               // icon image file name for exit button label. If present, text is ignored
     text: "&times;",        // text string (character) used for "X" label on the exit button
     raw: "",                // raw html used as "X" for exit.  If present, text and icon are ignored
@@ -392,7 +392,7 @@ var conf = {
   // Animation
   /////////////
   
-  alertStart: {               // controls alert's start animation
+  alertStart: {             // controls alert's start animation
     duration: 500,          // alert start animation duration (ms) - 0 means no animation
     dir: "top",             // direction from which the alert appears -- see below for values
     scale: 0,               // starting size factor of the alert before animation
@@ -401,7 +401,7 @@ var conf = {
     func: "ease-in"         // CSS transition-timing-function name
   },
   
-  alertExit: {                // controls alert's exit animation
+  alertExit: {              // controls alert's exit animation
     duration: 350,          // alert exit animation duration (ms) - 0 means no animation
     dir: "none",            // direction to which the alert exits -- see below for values
     scale: 0,               // ending size factor of the alert after animation
@@ -413,7 +413,7 @@ var conf = {
   // Callbacks
   //////////////
   
-  callbacks: {                    // callback functions handling internal and external events
+  callbacks: {                  // callback functions handling internal and external events
     onDisplayBegin: null,       // function called before alert starts to display
     onDisplayEnd: null,         // function called after alert has displayed
     onExitBegin: null,          // function called before alert starts to exit 
@@ -433,7 +433,7 @@ var conf = {
     values: {}          // built-in CSS styling class strings -- removed for brevity
   },
 
-  inlineStyles: {        // inline style strings for various alert element parts 
+  inlineStyles: {       // inline style strings for various alert element parts 
     containerDiv: "",
     alertBoxDiv: "",
     titleDiv: "",
