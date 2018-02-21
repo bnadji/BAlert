@@ -924,15 +924,17 @@ This object defines the **animation** behavior of the alert when it **starts**. 
     - **"bottom right"** or **"right bottom"** means from top-right corner
     - **"center left"** or **"left center"** means from center-left side
     - **"center right"** or **"right center"** means from center-right side
-    - **"center top"** or **"top center"** means from center -top side
+    - **"center top"** or **"top center"** means from center-top side
     - **"center bottom"** or **"bottom center"** means from center-bottom side
-    - **"center center"** is same as **"center"** means from the center of the window
+    - **"center center"** is the same as **"center"** and it means from the center of the window
+    
+    >Note: There is only one space allowed in multi-word `dir` strings.  Also any invalid `dir` value will default to **"none"**.
+    
     - **[X,Y]** is an array of X and Y coordinates from which the center of the alert box starts its display animation.
     X and Y take on the same values as defined under `position.X` and `position.Y` in **"`conf.position` Attribute"** section.
     Using **[X,Y]** along with `scale: 0` (explained below), and `getCenterPosition()` method can help create the effect that one
     alert is emerging from within another alert or another DOM element (see animation [examples](http://vinoquiz.ddns.net/BAlert/index.php)).
     
-   >Note: There is only one space allowed in multi-word `dir` strings.  Also any invalid `dir` value will default to **"none"**.
 
 - `delay`: an integer (default: **0**); an artificially induced delay (in ms) before the display action begins.
 - `scale`: a number that indicates the scale factor for the alert size before it starts.  A **0** means that the alert starts from a zero size,
@@ -942,10 +944,10 @@ will start the alert from a large size and converges to the final size when the 
 - `rotate`: a number indicating the number of 360 degree rotations (spins) that the alert makes before it reaches its final position.
 A positive number rotates clockwise, a negative number rotates counter-clockwise.
 
-   >Note: To be readable, alerts always end up in the natural upright position at the end of animation,
-even if `rotate` is not a whole number.  For example, a
-value of **0.5** for `rotate` means that the alert will start from an upside down position and finishes in the normal upright position
-after a 180 degree turn.
+    >Note: To be readable, alert's starting position for animation is chosen such that the alert always ends up
+    in the natural upright position at the end of animation,
+    even if `rotate` is not a whole number.  For example, a value of **0.5** for `rotate` means that the alert will
+    start from an upside down position and finishes in the normal upright position after a 180 degree turn.
 
 - `func`: a string indicating the transition timing function.  This mathematical function outlines how fast the alert animation behavior
 changes. It can take on values such as:
