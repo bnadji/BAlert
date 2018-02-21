@@ -384,8 +384,9 @@ var conf = {
     raw: "",                // raw html used as "X" for exit.  If present, text and icon are ignored
     onClick: null,          // button callback function
     keepAlert: false,       // should alert stay up when the button is pressed?
+    inlineStyle: "",        // a string containing inline CSS styles for this button
     visible: function(){}   // should exit button be visible? -- default is an internal boolean function
-                            // other self* attributes are also supported but not useful
+                            // other self* attributes (shown above) are also supported but not useful
   },
   
   //////////////
