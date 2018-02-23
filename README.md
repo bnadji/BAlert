@@ -86,6 +86,8 @@ You start using `BAlert` by first including the source file in the HTML `<head>`
 <script src='/path/to/js/files/BAlert/BAlert-debug.js' type='text/javascript' charset='UTF-8'></script>
 <!-- For production: -->
 <script src='/path/to/js/files/BAlert/BAlert-mini.js' type='text/javascript' charset='UTF-8'></script>
+<!-- For production, really small gzipped footprint: -->
+<script src='/path/to/js/files/BAlert/BAlert-mini.js.gz' type='text/javascript' charset='UTF-8'></script>
 ```
 
 You can create alerts by creating a new instance of BAlert:
@@ -1814,6 +1816,8 @@ code stripped:
 ```html
 <!-- minified BAlert for production -->
 <script src='/path/to/js/files/BAlert/BAlert-mini.js' type='text/javascript' charset='UTF-8'></script>
+<!-- really small minified and compressed BAlert for production -->
+<script src='/path/to/js/files/BAlert/BAlert-mini.js.gz' type='text/javascript' charset='UTF-8'></script>
 ```
 ### Sequence of BAlert's Internal Activities
 ---
