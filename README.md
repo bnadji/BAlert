@@ -78,7 +78,7 @@ which makes it a few KBytes smaller and suitable for production.
 Include the file in the HTML header
 as shown below and you are ready to go.
 # Quick start
-You start using `BAlert` by first including the source file in the HTML `<head>`:
+You start using `BAlert` by first including the source file inside the HTML `<head>...</head>` section:
 
 ##### Example: including BAlert in the HTML header
 ```html
