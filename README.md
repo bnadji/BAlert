@@ -32,6 +32,7 @@ Some key BAlert features are:
 - It is **asynchronous**, i.e., the execution does not stop when the alert is displayed.
 - It is **highly configurable** through a configuration object.
 - It **does not use window pop-ups** and therefore is pop-up safe.
+- It has a small footprint (minified gzipped version is less than 5KB).
 - It has full **debug** support built in.
 
 
