@@ -931,7 +931,7 @@ This object defines the **animation** behavior of the alert when it **starts**. 
     - **"center bottom"** or **"bottom center"** means from center-bottom side
     - **"center center"** is the same as **"center"** and it means from the center of the window
     
-    >Note: There is only one space allowed in multi-word `dir` strings.  Also any invalid `dir` value will default to **"none"**.
+    >Note: There is only one space allowed in multi-word `dir` strings.  Any invalid `dir` value string will default to **"none"**.
     
     - **[X,Y]** is an array of X and Y coordinates from which the center of the alert box starts its display animation.
     X and Y take on the same values as defined under `position.X` and `position.Y` in **"`conf.position` Attribute"** section.
@@ -1702,7 +1702,7 @@ and returns a string outlining the structure and attributes
 of the `elm` as seen by the browser.  If no argument is given,
 the entire alert box element is assumed and the full structure of the alert is returned.
 This method is used internally to support `setDebug(4)` method mentioned below under **"BAlert `setDebug()` Method"** section.
->Note: For consistency and readability, a closing tag is always displayed, even for elements that do not
+>Note: For consistency and readability, a closing tag is always provided in the output, even for elements that do not
 require one (e.g., `<img src=...></img>`).
 
 
@@ -1850,10 +1850,10 @@ There will be no artifacts left from the alert in browser's DOM or internal Java
 In general, we have seen styling in three different contexts:
   1. Styling using a `.css` style sheet
   2. Built-in default classes (`conf.defaultClasses`) that can be used in the absence of `.css` style sheet
-  3. Individual element local styling using the `inlineStyle` or `inlineStyles[elm]` attribute of the element
+  3. Individual element local inline styling using the `inlineStyle` or `inlineStyles[elm]` attribute of the element
   
-1 & 2 should not exist together.  In fact using 2 will turn off 1. Also 3 overwrites them both for the styled attribute with the same name.
-So it is good practice to turn the built-in styling off, use a `.css` style sheets, and then use occasional `inlineStyle` inline styling.
+(1) & (2) should not exist together. In fact using (2) will turn off (1). Also (3) overwrites (1) and (2) both for the styled attribute with the same name.
+So it is good practice to turn the built-in styling (2) off, use a `.css` style sheets (1), and then use occasional `inlineStyle` inline styling (3).
 See **"`conf.inlineStyles` Attribute"**, **"Alert DOM Structure"** and **"BAlert `getDefaultClasses()` Method"** sections
 for more detail.
 
@@ -1861,13 +1861,15 @@ for more detail.
 All of the above styling is done before the alert is built/displayed and the browser DOM element exists.  After the alert is built or displayed, the only way
 to change its style is by getting a reference to it's browser DOM element using `getElement()` method, and change it's style using the usual JavaScript methods.
 In the following example, the color of the content area of the alert is changed to *blue* after it has been built and displayed:
+
+##### Example: Changing element attribute after it has been built/displayed
 ```javascript
-// changing element attribute after it has been built
+// changing element attribute after it has been built or displayed
 var ba = new BAlert("Hello World").display();
 ba.getElement("contentDiv").style.backgroundColor = "blue";
 ```
 
-### Difference between `raw` and `text` Attribute
+### Difference between `raw` and `text` Attributes
 ---
 As we have seen, **content**, **title**, **exitButton** and **mainButtons** can  have either a `raw` or a `text` attribute.
 Both attributes can have HTML strings as values.
