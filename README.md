@@ -488,7 +488,7 @@ left edge of the window, a negative number, e.g., **_-10_**, **_"-10px"_** or **
 measured from the right side of the window.
     
 - `Y`: the vertical distance measured from the top of the alert box to the top of the window.
-The valid values have the same interpretation as above,
+Values have the same interpretation as in `X` above,
 except replace horizontal with vertical,  width with height and left and right with top and down respectively.
 
 - `staggerX`: in cases where multiple consecutive alerts are displayed that have the same `X` and `Y` position,
@@ -508,7 +508,7 @@ is the positive offset to the right of the left edge of the previous alert, a ne
 is the offset to the left of the left edge of the previous alert.
     
 - `staggerY`: the vertical offset used on the second and subsequent alerts when multiple alerts are stacked.
-The valid values have the same interpretation as if `staggerX`,
+Values have the same interpretation as in `staggerX`,
 except replace horizontal with vertical,  width with height and left and right with top and down respectively.
 
 >Note: Units other than `px` and `rem` or other invalid strings are silently ignored and the value is assumed to be in default `px` units.
@@ -652,7 +652,7 @@ new BAlert().setConf(conf).display();
 ### `conf.title` Attribute
 ---
 The `title` attribute is an object that contains the main content of the alert box title.  It has the following attributes:
-- `icon`: It contains the the name of the icon image file for the title.  This image is placed in the DOM **titleDiv** `<div>`
+- `icon`: It contains the name of the icon image file for the title.  This image is placed in the DOM **titleDiv** `<div>`
 and is styled with the CSS class that has the default name **bajs\_titleIcon**.
 
 - `text`: It contains the text of the title.  It may contain HTML instructions.
