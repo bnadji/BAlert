@@ -1700,11 +1700,116 @@ distance (in pixels) of the center of the alert box from the left edge and top e
 The `getStructure(elm)` is a general purpose method.  It traverses the browser's internal DOM structure starting from `elm`,
 and returns a string outlining the structure and attributes
 of the `elm` as seen by the browser.  If no argument is given,
-the entire alert box element is assumed and the full structure of the alert is returned.
+the entire alert box element is assumed and the full DOM structure of the alert is returned.
+
 This method is used internally to support `setDebug(4)` method mentioned below under **"BAlert `setDebug()` Method"** section.
+
+In the following example, the `getStructure()` method is used to get the DOM browser structure of an alert and display it on the console:
+##### Example: Getting the browser DOM sturcutre of an alert
+```javascript
+ var ba = new BAlert({text: "Cannot write file: <em>'config.data'</em>"},
+    0,
+    {text: "Warning", icon: "icon_warning"},
+    [
+      { text: "Abort", icon: "icon_abort", onClick: function() { console.log("Abort was pushed"); } },
+      { text: "Retry", icon: "icon_retry", onClick: function() { console.log("Retry was pushed"); } }
+    ],
+    {
+      defaultClasses: {apply: true},
+      exitButton: {icon: "icon_exit"},
+      iconsPath: "./images"
+    }
+  ).display();
+  
+  console.log(ba.getStructure());
+```
+
+The output would look like the following:
 >Note: For consistency and readability, a closing tag is always provided in the output, even for elements that do not
 require one (e.g., `<img src=...></img>`).
 
+##### Example: An example of an alert DOM structure
+```html
+<DIV
+   id= 'containerDiv_A1'
+   class= 'def_containerDiv_A1'
+   style= 'height: 808px; z-index: 1001; position: absolute;'>
+   <DIV
+       id= 'alertBoxDiv_A1'
+       class= 'def_alertBoxDiv_A1'
+       style= 'position: fixed;'>
+       <DIV
+           id= 'titleDiv_A1'
+           class= 'def_titleDiv_A1'>
+           <IMG
+               name= 'titleIcon'
+               id= 'titleIcon_A1'
+               class= 'def_titleIcon_A1'
+               src= './images/icon_warning'>
+           </IMG>
+           <SPAN
+               id= 'titleText_A1'
+               class= 'def_titleText_A1'>
+           </SPAN>
+           <BUTTON
+               name= 'exitButton'
+               id= 'exitButton_A1'
+               class= 'def_exitButton_A1'>
+               <IMG
+                   name= 'exitButtonIcon'
+                   id= 'exitButtonIcon_A1'
+                   class= 'def_exitButtonIcon_A1'
+                   src= './images/icon_exit'>
+               </IMG>
+           </BUTTON>
+       </DIV>
+       <DIV
+           id= 'contentDiv_A1'
+           class= 'def_contentDiv_A1'>
+           <SPAN
+               id= 'contentText_A1'
+               class= 'def_contentText_A1'>
+               <EM>
+               </EM>
+           </SPAN>
+       </DIV>
+       <DIV
+           id= 'mainButtonsDiv_A1'
+           class= 'def_mainButtonsDiv_A1'>
+           <BUTTON
+               name= 'mainButtons0'
+               id= 'mainButtons0_A1'
+               class= 'def_mainButtons_A1'>
+               <IMG
+                   name= 'mainButtonsIcon0'
+                   id= 'mainButtonsIcon0_A1'
+                   class= 'def_mainButtonsIcon_A1'
+                   src= './images/icon_abort'>
+               </IMG>
+               <SPAN
+                   id= 'mainButtonsText0_A1'
+                   class= 'def_mainButtonsText_A1'>
+               </SPAN>
+           </BUTTON>
+           <BUTTON
+               name= 'mainButtons1'
+               id= 'mainButtons1_A1'
+               class= 'def_mainButtons_A1'>
+               <IMG
+                   name= 'mainButtonsIcon1'
+                   id= 'mainButtonsIcon1_A1'
+                   class= 'def_mainButtonsIcon_A1'
+                   src= './images/icon_retry'>
+               </IMG>
+               <SPAN
+                   id= 'mainButtonsText1_A1'
+                   class= 'def_mainButtonsText_A1'>
+               </SPAN>
+           </BUTTON>
+       </DIV>
+   </DIV>
+</DIV>
+```
 
 ### `BAlert.version()` Method
 ---
@@ -1726,7 +1831,7 @@ on the JavaScript console.  An attempt is made to make debug messages helpful to
 - **n=1** displays the trace of activities inside BAlert as the alert is built, displayed and animated.
 - **n=2** dumps the alert's main **Configuration Object**.
 - **n=4** dumps alert's traversed browser DOM structure.
-- **n=8** dumps the alert's internal `defaultClasses` in form of `.css` class definitions 
+- **n=8** dumps the alert's internal `defaultClasses` in form of `.css` class definitions shown 
 under **"BAlert `getDefaultClasses()` Method"** section.
 
 The above bit-positioned option numbers can be combined by adding their values, e.g., `setDebug(5)` outputs both the alert's activity traces and its
