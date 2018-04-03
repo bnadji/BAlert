@@ -1704,18 +1704,17 @@ the entire alert box element is assumed and the full DOM structure of the alert 
 
 This method is used internally to support `setDebug(4)` method mentioned below under **"BAlert `setDebug()` Method"** section.
 
-In the following example, the `getStructure()` method is used to get the DOM browser structure of an alert and display it on the console:
+In the following example, the `getStructure()` method is used to display the DOM browser structure of an alert on the JavaScript console:
 ##### Example: Getting the browser DOM sturcutre of an alert
 ```javascript
- var ba = new BAlert({text: "Cannot write file: <em>'config.data'</em>"},
-    0,
+ var ba = new BAlert({text: "Cannot write file: <em>'config.data'</em>"}, 0,
     {text: "Warning", icon: "icon_warning"},
     [
       { text: "Abort", icon: "icon_abort", onClick: function() { console.log("Abort was pushed"); } },
       { text: "Retry", icon: "icon_retry", onClick: function() { console.log("Retry was pushed"); } }
     ],
     {
-      defaultClasses: {apply: true},
+      defaultClasses: {apply: false},
       exitButton: {icon: "icon_exit"},
       iconsPath: "./images"
     }
@@ -1732,83 +1731,83 @@ require one (e.g., `<img src=...></img>`).
 ```html
 <DIV
    id= 'containerDiv_A1'
-   class= 'def_containerDiv_A1'
+   class= 'bajs_containerDiv'
    style= 'height: 808px; z-index: 1001; position: absolute;'>
    <DIV
        id= 'alertBoxDiv_A1'
-       class= 'def_alertBoxDiv_A1'
+       class= 'bajs_alertBoxDiv'
        style= 'position: fixed;'>
        <DIV
            id= 'titleDiv_A1'
-           class= 'def_titleDiv_A1'>
+           class= 'bajs_titleDiv'>
            <IMG
                name= 'titleIcon'
                id= 'titleIcon_A1'
-               class= 'def_titleIcon_A1'
+               class= 'bajs_titleIcon'
                src= './images/icon_warning'>
            </IMG>
            <SPAN
                id= 'titleText_A1'
-               class= 'def_titleText_A1'>
+               class= 'bajs_titleText'>
            </SPAN>
            <BUTTON
                name= 'exitButton'
                id= 'exitButton_A1'
-               class= 'def_exitButton_A1'>
+               class= 'bajs_exitButton'>
                <IMG
                    name= 'exitButtonIcon'
                    id= 'exitButtonIcon_A1'
-                   class= 'def_exitButtonIcon_A1'
+                   class= 'bajs_exitButtonIcon'
                    src= './images/icon_exit'>
                </IMG>
            </BUTTON>
        </DIV>
        <DIV
            id= 'contentDiv_A1'
-           class= 'def_contentDiv_A1'>
+           class= 'bajs_contentDiv'>
            <SPAN
                id= 'contentText_A1'
-               class= 'def_contentText_A1'>
+               class= 'bajs_contentText'>
                <EM>
                </EM>
            </SPAN>
        </DIV>
        <DIV
            id= 'mainButtonsDiv_A1'
-           class= 'def_mainButtonsDiv_A1'>
+           class= 'bajs_mainButtonsDiv'>
            <BUTTON
                name= 'mainButtons0'
                id= 'mainButtons0_A1'
-               class= 'def_mainButtons_A1'>
+               class= 'bajs_mainButtons'>
                <IMG
                    name= 'mainButtonsIcon0'
                    id= 'mainButtonsIcon0_A1'
-                   class= 'def_mainButtonsIcon_A1'
+                   class= 'bajs_mainButtonsIcon'
                    src= './images/icon_abort'>
                </IMG>
                <SPAN
                    id= 'mainButtonsText0_A1'
-                   class= 'def_mainButtonsText_A1'>
+                   class= 'bajs_mainButtonsText'>
                </SPAN>
            </BUTTON>
            <BUTTON
                name= 'mainButtons1'
                id= 'mainButtons1_A1'
-               class= 'def_mainButtons_A1'>
+               class= 'bajs_mainButtons'>
                <IMG
                    name= 'mainButtonsIcon1'
                    id= 'mainButtonsIcon1_A1'
-                   class= 'def_mainButtonsIcon_A1'
+                   class= 'bajs_mainButtonsIcon'
                    src= './images/icon_retry'>
                </IMG>
                <SPAN
                    id= 'mainButtonsText1_A1'
-                   class= 'def_mainButtonsText_A1'>
+                   class= 'bajs_mainButtonsText'>
                </SPAN>
            </BUTTON>
        </DIV>
    </DIV>
-</DIV>
+</DIV
 ```
 
 ### `BAlert.version()` Method
