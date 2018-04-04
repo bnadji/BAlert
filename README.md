@@ -930,6 +930,7 @@ This object defines the **animation** behavior of the alert when it **starts**. 
     - **"center top"** or **"top center"** means animation starts from center-top side
     - **"center bottom"** or **"bottom center"** means animation starts from center-bottom side
     - **"center center"** is the same as **"center"** and it means animation starts from the center of the window
+
     >Note: There is only one space allowed in multi-word `dir` strings.  Any invalid `dir` value string is silently ignored
 and defaults to **"none"**.
 
