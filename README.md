@@ -915,28 +915,28 @@ This object defines the **animation** behavior of the alert when it **starts**. 
 - `duration`: a number indicating the length of time (in ms) that it takes for the alert to appear.  A **_0_** indicates no animation.
 - `dir`: a string (or an array) indicating the direction from which the alert enters the visible screen.  The accepted values are:
 
-    - **"none"** means alert will start in place.
-    - **"left"** means directly from the left
-    - **"right"** means directly from the right
-    - **"top"** means directly from the top
-    - **"bottom"** means directly from the bottom
-    - **"center"** means from the center of the window
-    - **"top left"** or **"left top"** means from top-left corner
-    - **"top right"** or **"right top"** means from top-right corner
-    - **"bottom left"** or **"left bottom"** means from bottom-left corner
-    - **"bottom right"** or **"right bottom"** means from top-right corner
-    - **"center left"** or **"left center"** means from center-left side
-    - **"center right"** or **"right center"** means from center-right side
-    - **"center top"** or **"top center"** means from center-top side
-    - **"center bottom"** or **"bottom center"** means from center-bottom side
-    - **"center center"** is the same as **"center"** and it means from the center of the window
-    
-    >Note: There is only one space allowed in multi-word `dir` strings.  Any invalid `dir` value string will default to **"none"**.
+    - **"none"** means alert animation starts in place.
+    - **"left"** means animation starts directly from the left
+    - **"right"** means animation starts directly from the right
+    - **"top"** means animation starts directly from the top
+    - **"bottom"** means animation starts directly from the bottom
+    - **"center"** means animation starts from the center of the window
+    - **"top left"** or **"left top"** means animation starts from top-left corner
+    - **"top right"** or **"right top"** means animation starts from top-right corner
+    - **"bottom left"** or **"left bottom"** means animation starts from bottom-left corner
+    - **"bottom right"** or **"right bottom"** means animation starts from top-right corner
+    - **"center left"** or **"left center"** means animation starts from center-left side
+    - **"center right"** or **"right center"** means animation starts from center-right side
+    - **"center top"** or **"top center"** means animation starts from center-top side
+    - **"center bottom"** or **"bottom center"** means animation starts from center-bottom side
+    - **"center center"** is the same as **"center"** and it means animation starts from the center of the window
+     
+       >Note: There is only one space allowed in multi-word `dir` strings.  Any invalid `dir` value string will default to **"none"**.
     
     - **[X,Y]** is an array of X and Y coordinates from which the center of the alert box starts its display animation.
     X and Y take on the same values as defined under `position.X` and `position.Y` in **"`conf.position` Attribute"** section.
     Using **[X,Y]** along with `scale: 0` (explained below), and `getCenterPosition()` method can help create the effect that one
-    alert is emerging from within another alert or another DOM element (see animation [examples](http://vinoquiz.ddns.net/BAlert/index.php)).
+    alert is emerging from within the center of another alert or another DOM element (see animation [examples](http://vinoquiz.ddns.net/BAlert/index.php)).
     
 
 - `delay`: an integer (default: **0**); an artificially induced delay (in ms) before the display action begins.
