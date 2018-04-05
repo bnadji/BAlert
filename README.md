@@ -396,7 +396,7 @@ var conf = {
   // Animation
   /////////////
   
-  alertStart: {             // controls alert's start animation
+  animStart: {             // controls alert's start animation
     duration: 500,          // alert start animation duration (ms) - 0 means no animation
     dir: "top",             // direction from which the alert appears -- see below for values
     scale: 0,               // starting size factor of the alert before animation
@@ -405,7 +405,7 @@ var conf = {
     func: "ease-in"         // CSS transition-timing-function name
   },
   
-  alertExit: {              // controls alert's exit animation
+  animExit: {              // controls alert's exit animation
     duration: 350,          // alert exit animation duration (ms) - 0 means no animation
     dir: "none",            // direction to which the alert exits -- see below for values
     scale: 0,               // ending size factor of the alert after animation
@@ -636,8 +636,8 @@ var conf = {
     defaultClasses: {apply: false},
     content: {raw: video},
     title: {text: "Chianti Sales on the Rise"},
-    alertStart: {dir: "top", scale: 1, rotate: 0, duration: 500, func: "ease-in"},
-    alertExit:  {dir: "none", scale: 0, rotate: 1, duration:  500, func: "ease-out"},
+    animStart: {dir: "top", scale: 1, rotate: 0, duration: 500, func: "ease-in"},
+    animExit:  {dir: "none", scale: 0, rotate: 1, duration:  500, func: "ease-out"},
     exitButton: {visible: false},
     mainButtons: [
         {text:"Exit", icon:"icon_exit", onClick: function() {console.log("Exit was pushed"); }}
@@ -909,7 +909,7 @@ The logic behind this internal function is that if the alert is auto exiting in 
 is no need for an exit button.
 
 
-### `conf.alertStart` Attribute
+### `conf.animStart` Attribute
 ---
 This object defines the **animation** behavior of the alert when it **starts**.  It has several attributes:
 - `duration`: a number indicating the length of time (in ms) that it takes for the alert to appear.  A **_0_** indicates no animation.
@@ -963,36 +963,36 @@ changes. It can take on values such as:
     - **"cubic-bezier(n1, n2, n3, n4)"**, e.g., **"cubic-bezier(.39, .5, .87, .51)"**
     - ...etc. Any value that is accepted by the **CSS transition-timing-function** standard is also accepted here.
 
-The following example, uses an `alertStart` configuration that will fly in the alert from upper left corner of the screen,
+The following example, uses an `animStart` configuration that will fly in the alert from upper left corner of the screen,
 expanding its size from a dot to full size and rotating it 1.5 times in one second, using the timing function **ease-in-out**:
 
 ##### Example: Alert start animation
 ```javascript
 // start animation
 new BAlert("Hello World!", 0, null, null, {
-    alertStart: {duration:1000, dir:"top left", scale:0, rotate:1.5, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"top left", scale:0, rotate:1.5, func:"ease-in-out"} 
 }).display();
 ```
 
 See more examples in the next section.
 
 
-### `conf.alertExit` Attribute
+### `conf.animExit` Attribute
 ---
-This object defines the **animation** behavior of the alert when it **exits**.  The attribute have similar interpretation to that of `alertStart` above,
+This object defines the **animation** behavior of the alert when it **exits**.  The attribute have similar interpretation to that of `animStart` above,
 but as applied to the exit behavior of the alert.  For example, the `scale` attribute defines the final size factor of the alert at the end of
 its exit animation, the `dir` attribute defines the exit direction of the alert,
 and the `delay` attribute defines the induced delay before the exit action begins.
 
-In the following example, we add an `alertExit` object definition to the previous example. When the exit button is pressed, the `alertExit` object
+In the following example, we add an `animExit` object definition to the previous example. When the exit button is pressed, the `animExit` object
 causes the alert to exit by making a half rotation and falling to the
 center bottom of the screen and disappearing in 0.5 second, giving the impression that it is unhinging and falling into the abyss!
 
 ##### Example: Animating alerts; exiting into abyss! 
 ```javascript
 new BAlert("Goodbye Cruel World", 0, null, null, {
-    alertStart: {duration:500, dir:"top", scale:0, rotate:0, func:"ease-in-out"}, 
-    alertExit:  {duration: 2000, dir:"bottom center", scale:0, rotate:0.5, func:"ease-in-out"} 
+    animStart: {duration:500, dir:"top", scale:0, rotate:0, func:"ease-in-out"}, 
+    animExit:  {duration: 2000, dir:"bottom center", scale:0, rotate:0.5, func:"ease-in-out"} 
 }).display();
 ```
 In the following example, a cubic Bezier function is used for managing alert's motion timing.
@@ -1002,8 +1002,8 @@ Alert animation starts slow, speeds at the end and comes to an immediate halt, g
 ```javascript
 new BAlert("You have received an urgent email", 0, "Email from Steve", null, {
     position:  {X: "center", Y: "20%"},
-    alertStart: {dir: "right", scale: 1, duration: 1000, func: "cubic-bezier(.91,.39,.92,.61)"},
-    alertExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}           
+    animStart: {dir: "right", scale: 1, duration: 1000, func: "cubic-bezier(.91,.39,.92,.61)"},
+    animExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}           
 }).display();
 ```
 
@@ -1013,8 +1013,8 @@ More examples:
 ```javascript
 new BAlert("You have received an urgent email", 0, "Email from Steve", null, {
     position:  {X: "-10px", Y: "-10px"},
-    alertStart: {dir: "right", scale: 1, duration: 1000, func: "ease-in"},
-    alertExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}           
+    animStart: {dir: "right", scale: 1, duration: 1000, func: "ease-in"},
+    animExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}           
 }).display();
 ```
 
@@ -1022,16 +1022,16 @@ new BAlert("You have received an urgent email", 0, "Email from Steve", null, {
 ```javascript
 new BAlert("Hello World!", 0, null, null, {
     position: {X:"center", Y:"20%"},
-    alertStart: {duration:1000, dir:"top left", scale:0, rotate:3, func:"ease-in-out"}, 
-    alertExit:  {duration: 500, dir:"top right", scale:0, rotate:3, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"top left", scale:0, rotate:3, func:"ease-in-out"}, 
+    animExit:  {duration: 500, dir:"top right", scale:0, rotate:3, func:"ease-in-out"} 
 }).display();
 ```
 
 ##### Example: Animating alerts; emerge and vanish in-place 
 ```javascript
 new BAlert("Hello World", 0, null, null, {
-    alertStart: {duration:1000, dir:"none", scale:0, rotate:0, func:"ease-in-out"}, 
-    alertExit:  {duration: 500, dir:"none", scale:0, rotate:0, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"none", scale:0, rotate:0, func:"ease-in-out"}, 
+    animExit:  {duration: 500, dir:"none", scale:0, rotate:0, func:"ease-in-out"} 
 }).display();
 ```
 
@@ -1039,8 +1039,8 @@ new BAlert("Hello World", 0, null, null, {
 ```javascript
 new BAlert("Allies Land in France", 0, "Headline News", null, {
     position: {X:"center", Y:"center"},
-    alertStart: {duration: 2000, scale:0, rotate: 6, dir:"center"}, 
-    alertExit:  {duration: 0} 
+    animStart: {duration: 2000, scale:0, rotate: 6, dir:"center"}, 
+    animExit:  {duration: 0} 
 }).display();
 ```
 
@@ -1048,8 +1048,8 @@ new BAlert("Allies Land in France", 0, "Headline News", null, {
 ```javascript
 new BAlert("Allies Land in France", 0, "Headline News", null, {
     position: {X:"center", Y:"center"},
-    alertStart: {duration:1000, dir:"none", scale:0, rotate:3, func:"ease-in-out"}, 
-    alertExit:  {duration: 500, dir:"none", scale:4, rotate:0, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"none", scale:0, rotate:3, func:"ease-in-out"}, 
+    animExit:  {duration: 500, dir:"none", scale:4, rotate:0, func:"ease-in-out"} 
 }).display();
 ```
 
@@ -1100,8 +1100,8 @@ function setColor(alrt, color) {
 }
 // use of tapOutside and other events
 new BAlert({text: "Hello world"}, 0, null, null,  {
-  alertStart: {dir: "top", scale: 0, duration: 1000, func: "ease-in"},
-  alertExit:  {dir: "bottom", scale: 0, duration:  1000, func: "ease-out"},     
+  animStart: {dir: "top", scale: 0, duration: 1000, func: "ease-in"},
+  animExit:  {dir: "bottom", scale: 0, duration:  1000, func: "ease-out"},     
   callbacks:
     {
       onDisplayBegin: function(alrt) { setColor(alrt, "blue");},
@@ -1310,7 +1310,7 @@ one or two argument:
 ##### Example: Using setConf() method with one argument
 ```javascript
 var ba = new BAlert();
-ba.setConf( {alertExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );      
+ba.setConf( {animExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );      
 ```
 In fact, the entire configuration object `conf` that we saw in **"Configuration Object"** section can be be dropped in,
 in one shot, using this method.
@@ -1319,8 +1319,8 @@ in one shot, using this method.
 ```javascript
 var conf = {
     position:  {X: "15px", Y: "-20%"},
-    alertStart: {dir: "left", scale: 1, duration: 1000, func: "ease-in"},
-    alertExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}           
+    animStart: {dir: "left", scale: 1, duration: 1000, func: "ease-in"},
+    animExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}           
 };
 new BAlert().setConf(conf).display();     
 ```
@@ -1331,7 +1331,7 @@ the **Configuration Object** attribute, and *attrValue* is the value being assig
 ##### Example: Using setConf() method with two arguments
 ```javascript
 var ba = new BAlert();
-ba.setConf("alertExit" ,  {dir: "left", scale: 1, duration:  500, func: "ease-out"} );      
+ba.setConf("animExit" ,  {dir: "left", scale: 1, duration:  500, func: "ease-out"} );      
 ```
 Note that in this method, the attribute name is enclosed in quotes.
 Also note that the *attrValue* itself may be an object as in the above example.
@@ -1346,10 +1346,10 @@ So the following two are equivalent:
 ```javascript
 var ba = new BAlert();
 
-ba.setConf( {alertExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );
+ba.setConf( {animExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );
 // is equivalent to
-ba.setConf( {alertExit: {dir: "right", scale: 1} } );
-ba.setConf( {alertExit: {duration:  500, func: "ease-out", dir: "left"} } );
+ba.setConf( {animExit: {dir: "right", scale: 1} } );
+ba.setConf( {animExit: {duration:  500, func: "ease-out", dir: "left"} } );
 
 ```
 
@@ -1367,7 +1367,7 @@ var ba = new BAlert();
 // getting entire configuration object
 var conf2 = ba.getConf();
 // getting a single configuration object attribute's value
-var als = ba.getConf("alertStart");
+var als = ba.getConf("animStart");
 ```
 
 ### `BAlert.getDefaultClasses()` Method
@@ -1930,10 +1930,10 @@ In order to make the best use of alert callbacks, delays and timeouts, we need t
 from the beginning (`new BAlert(...)`) to the end (`exit()`):
 
   1. `BAlert` arguments and **Configuration Object** values are normalized and consolidated into the internal `conf` object.
-  1. Start of alert display is delayed by `conf.alertStart.delay` milliseconds (if given).
+  1. Start of alert display is delayed by `conf.animStart.delay` milliseconds (if given).
   1. `BAlert.build()` is called to build the browser DOM (and internal `DOM`) structures based on the `conf` object values.
   1. `conf.callbacks.onDisplayBegin` callback function is called (if any).
-  1. `conf.alertStart` animation instructions are executed to animate the alert to existance.
+  1. `conf.animStart` animation instructions are executed to animate the alert to existance.
   1. Alert's self-destruct timer is set for `conf.timeout` milliseconds if `conf.timeout > 0`.
   1. Various alert window event handlers (`resize`, `click`, `touchstart`) are added.
   1. `conf.callbacks.onDisplayEnd` callback function is called (if any).
@@ -1941,9 +1941,9 @@ from the beginning (`new BAlert(...)`) to the end (`exit()`):
 At this point, alert is displayed.  It will then wait until the self-destruct timer expires or the user
 initiates the exit (e.g., by pressing the exit button).  Then the following events take place:
 
-  1. Start of alert exit is delayed by `conf.alertExit.delay`  milliseconds (if given).
+  1. Start of alert exit is delayed by `conf.animExit.delay`  milliseconds (if given).
   1. `conf.callbacks.onExitBegin` callback function is called (if any).
-  1. `conf.alertExit` animation instructions are executed to animate the alert exit process.
+  1. `conf.animExit` animation instructions are executed to animate the alert exit process.
   1. `conf.callbacks.onExitEnd` callback function is called (if any).
   1. The attached alert window event handlers (`resize`, `click`, `touchstart`) are removed.
   1. Alert's internal `DOM` structure, related DOM `<style>` structure (if any), and the browser DOM structure are removed.
@@ -2014,8 +2014,8 @@ function getRatingFromUser() {
     // general configuration for alerts sliding in and out from lower left
     var slideFromLeftConf = {
         position:  {X: "15px", Y: "-20%"},
-        alertStart: {dir: "left", scale: 1, duration: 1000, func: "ease-in"},
-        alertExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}           
+        animStart: {dir: "left", scale: 1, duration: 1000, func: "ease-in"},
+        animExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}           
     };
     
     // ask user if they like the app
