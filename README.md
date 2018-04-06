@@ -887,7 +887,7 @@ If present, `text` is ignored.
 - `raw`: a raw html string, hopefully resembling an "X", that appears on the exit button as label.  If present, `text` and `icon` are ignored.
 Note that this is considered a preformatted HTML string and therefore it is not styled with CSS styles.
 
-   >Note: If none of `text`, `icon` or `raw` are present a default text (`"x"`) character is used.
+   >Note: If none of `text`, `icon` or `raw` are present a default text (`"x"`) character is used.   
    
 - `onClick`: a function that is called when the button is pressed or **_null_** if no callback.
 - `keepAlert`: a boolean (default: **_false_**); if set to **_true_**, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
@@ -932,7 +932,7 @@ This object defines the **animation** behavior of the alert when it **starts**. 
     - **"center center"** is the same as **"center"** and it means animation starts from the center of the window
 
       >Note: There is only one space allowed in multi-word `dir` strings.  Any invalid `dir` value string is silently ignored
-      and defaults to **"none"**.
+      and defaults to **"none"**. 
 
     - **[X,Y]** is an array of X and Y coordinates from which the center of the alert box starts its display animation.
     X and Y take on the same values as defined under `position.X` and `position.Y` in **"`conf.position` Attribute"** section.
