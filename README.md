@@ -1,4 +1,4 @@
-# BAlert.js utility
+# BAlert.js utility (v2.3)
 
 BAlert (read as "Be Alert") is a highly configurable JavaScript utility object for displaying alerts and simple dialogue boxes.
 
@@ -97,7 +97,7 @@ You can create alerts by creating a new instance of BAlert:
 new BAlert("Hello World Wide Web!").display();
 ```
 
->Note: Note that `BAlert` is an _object_.  You always need to use the `new` operator to create new
+>Note: Note that `BAlert` is an _object_.  You always need to use the **`new`** operator to create new
 instances of it for any new alert.
 
 This will pop up an alert using the built-in default configuration to control its behavior and style (among other things).
@@ -109,19 +109,18 @@ The *"tap outside of the alert box to exit"* is the default behavior and can be 
 >Note: There is no restriction on the content.  This means that the alert content could be an HTML `<img>` or even a video 
  `<iframe>`.    
 
-If you want the alert to **auto exit** (after say, 3 seconds -- 3000 ms), you can give it a time out value (of 3000) as the second argument:
+If you want the alert to **auto exit** (after say, 2.5 seconds -- 2500 ms), you can give it a time out value (of 2500) as the second argument:
 
 ##### Example: a simple auto-exiting alert
 ```javascript
 // alert with auto exit
-new BAlert("Hello World", 3000).display();
+new BAlert("Hello World", 2500).display();
 ```
 This looks similar to the **Toast** alerts on **Android** devices with no title or buttons, appearing for a few seconds and disappearing after that.
 If the time out value is set to zero **0**, it means that the alert will not auto exit.
 
 
->Note: By default,
-(which can be changed), no exit button is placed on alerts that auto exit in 3 seconds or less.
+>Note: By default, (which can be changed), no exit button is placed on alerts that auto exit in 3 seconds or less.
 
 If you want to add a title (say, "Warning") to the alert, you can use the third argument to `BAlert`:
 
@@ -388,6 +387,7 @@ var conf = {
     onClick: null,          // button callback function
     keepAlert: false,       // should alert stay up when the button is pressed?
     inlineStyle: "",        // a string containing inline CSS styles for this button
+    threshold: 3000,        // exit button will not display if alert's timeout is <= threshold
     visible: function(){}   // should exit button be visible? -- default is an internal boolean function
                             // other self* attributes (shown above) are also supported but not useful
   },
@@ -899,12 +899,13 @@ and then managing the exit through your own `onClick` callback function which wo
 For example,
 if `inlineStyle` is set to `"float: left; color: red"`, the exit button "X" is turned red and is moved to the upper left corner of the alert box
 instead of the usual upper right.
+- `threshold`: is a positive integer number in milliseconds (default: **3000** or 3 seconds). See `visible` attribute below for its use.   
 - `visible`: a boolean or a function returning a boolean. If `visible` is a function, a reference to the alert object is passed to it as the argument.
 If `visible` evaluates to (or is)  **_true_**, it means that the exit button will be built and displayed.
 If **_false_**, no exit button will be constructed or displayed.
 
   The default value of the `visible` attribute is an internal function that is set to return
-**_true_** if timeout is non-zero and less than or equal to 3 seconds.
+**_true_** if timeout is non-zero and less than or equal to `threshold` (default 3 seconds).
 The logic behind this internal function is that if the alert is auto exiting in 3 seconds or less, there
 is no need for an exit button.
 
@@ -1072,15 +1073,16 @@ according to the `conf.position` values.  So, for example, if the alert was set 
 (e.g., `position: {X:"center", Y:"center"}`), 
 it is repositioned to remain at the
 center of the screen when the window is resized.  To disable this behavior, set this attribute to **_null_**.
-- `onTapOutside`: this function is called when user clicks or taps outside of the alert box.  Default is an internal function
+- `onTapOutside`: this function is called when user clicks or taps _outside_ of the alert box.  Default is an internal function
 that will force the alert to exit (as if user has pressed the exit button).
 Tapping outside the alert to exit is a common behavior in most apps, especially mobile apps.
-To disable the exit behavior, set this attribute to **_null_**.
-- `onTapInside`: this function is called when user clicks or taps inside the alert box.  Default is **_null_**.
-
+To disable the default exit behavior, set this attribute to **_null_**.
    >Note: If there are multiple alerts present on the screen and a tap happens outside all of them,
 the last displayed alert will exit (Last-displayed-first-out).  Also, while an alert exit animation is in progress, a tap
 outside will have no effect on remaining alerts until the exiting alert has completed its exit.
+
+- `onTapInside`: this function is called when user clicks or taps _inside_ the alert box.  Default is **_null_**.
+
 
 See the **Best Practices and Usage Notes** section for a description of various event timings.
 
