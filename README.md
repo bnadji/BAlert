@@ -1,4 +1,4 @@
-# BAlert.js utility (v2.3)
+# BAlert.js utility (v2.4)
 
 BAlert (read as "Be Alert") is a highly configurable JavaScript utility object for displaying alerts and simple dialogue boxes.
 
