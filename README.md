@@ -17,12 +17,12 @@ BAlert (read as "Be Alert") is a highly configurable JavaScript utility object f
 - [Acknowledgement](#acknowledgement)
 - [Contact](#contact)
 
-# BAlert Key Features 
+# BAlert Key Features
 Some key BAlert features are:
 
 - It can do full **animation** during alert's display and exit.
 - It can support images for title and button icons as well as **images** and **videos** as alert's content.
-- It has infinite diversity of look and feel since it is fully styled through **CSS style sheets** as well as inline styling. 
+- It has infinite diversity of look and feel since it is fully styled through **CSS style sheets** as well as inline styling.
 - It can be used by all PC and mobile **browsers** and by mobile apps (e.g., through **webview**).
 - It can be used as easily as with a **single JS line** of code or handle more complex interactive needs.
 - It supports **internal events** (e.g., animation start/end, exit start/end) with callbacks.
@@ -47,7 +47,7 @@ The site also provides the source code for each example.  Alerts are fully confi
 they are styled using CSS style sheets or inline styling, and therefore can have
 an infinite diversity of look and feel:
 
-  
+
 ![](http://vinoquiz.ddns.net/BAlert/images/ex_santorini.jpg)
 ![](http://vinoquiz.ddns.net/BAlert/images/ex_code.jpg)
 ![](http://vinoquiz.ddns.net/BAlert/images/alert4.jpg)
@@ -106,8 +106,8 @@ The alert will stay up until you click the **Exit** button (the "X" in the upper
 The alert will also exit by clicking somewhere outside the alert box.
 The *"tap outside of the alert box to exit"* is the default behavior and can be changed through the configuration object as we will see.
 
->Note: There is no restriction on the content.  This means that the alert content could be an HTML `<img>` or even a video 
- `<iframe>`.    
+>Note: There is no restriction on the content.  This means that the alert content could be an HTML `<img>` or even a video
+ `<iframe>`.
 
 If you want the alert to **auto exit** (after say, 2.5 seconds -- 2500 ms), you can give it a time out value (of 2500) as the second argument:
 
@@ -168,7 +168,7 @@ new BAlert("Disk write error", 0, "Warning", [
 ```
 There are many more options available as we will see in **`conf.mainButtons` Attribute** section.
 
-The fifth and last argument is the **Configuration Object**:  
+The fifth and last argument is the **Configuration Object**:
 
 ##### Example: adding the Configuration Object
 ```javascript
@@ -205,7 +205,7 @@ var conf = {
 
 new BAlert().setConf(conf).display();
 ```
-The `setConf()` method is used to assign values to configuration object attributes and it will be discussed later.  One can 
+The `setConf()` method is used to assign values to configuration object attributes and it will be discussed later.  One can
 use the `setConf()` method to implement the same example as above, but with one attribute at a time:
 
 ##### Example: using setConf() to set Configuration Object
@@ -347,7 +347,7 @@ var conf = {
   //////////////
   // Structure
   //////////////
-  
+
   position: {
     X: "center",        // X position after alert is displayed -- see below for values
     Y: "15%",           // Y position after alert is displayed -- see below for values
@@ -379,7 +379,7 @@ var conf = {
     }
     // more buttons       // additional buttons -- mainButtons is an array of button objects
   ],
-  
+
   exitButton: {             // the top corner "X" button used to exit alert
     icon: "",               // icon image file name for exit button label. If present, text is ignored
     text: "&times;",        // text string (character) used for "X" label on the exit button
@@ -388,56 +388,56 @@ var conf = {
     keepAlert: false,       // should alert stay up when the button is pressed?
     inlineStyle: "",        // a string containing inline CSS styles for this button
     threshold: 3000,        // exit button will not display if alert's timeout is <= threshold
-    visible: function(){}   // should exit button be visible? -- default is an internal boolean function
+    visible: function() {}   // should exit button be visible? -- default is an internal boolean function
                             // other self* attributes (shown above) are also supported but not useful
   },
-  
+
   //////////////
   // Animation
   /////////////
-  
+
   animStart: {             // controls alert's start animation
-    duration: 500,          // alert start animation duration (ms) - 0 means no animation
+    duration: 250,          // alert start animation duration (ms) - 0 means no animation
     dir: "top",             // direction from which the alert appears -- see below for values
     scale: 0,               // starting size factor of the alert before animation
     rotate: 0,              // number of rotations of the alert during display animation
     delay: 0,               // induced delay (in ms) before the start of display action
     func: "ease-in"         // CSS transition-timing-function name
   },
-  
+
   animExit: {              // controls alert's exit animation
     duration: 350,          // alert exit animation duration (ms) - 0 means no animation
     dir: "none",            // direction to which the alert exits -- see below for values
     scale: 0,               // ending size factor of the alert after animation
     rotate: 0,              // number of rotations of the alert during exit animation
     func: "ease-out"        // CSS transition-timing-function name
-  }, 
+  },
 
   //////////////
   // Callbacks
   //////////////
-  
+
   callbacks: {                  // callback functions handling internal and external events
     onDisplayBegin: null,       // function called before alert starts to display
     onDisplayEnd: null,         // function called after alert has displayed
-    onExitBegin: null,          // function called before alert starts to exit 
+    onExitBegin: null,          // function called before alert starts to exit
     onExitEnd: null,            // function called after alert has finished exiting
-    onResize: function(){},     // function called when window resizes -- see below for default value
-    onTapOutside: function(){}, // function called when user clicks outside of alert box -- see below
+    onResize: function() {},     // function called when window resizes -- see below for default value
+    onTapOutside: function() {}, // function called when user clicks outside of alert box -- see below
     onTapInside: null           // function called when user clicks inside of alert box
   },
 
   ///////////////////
   // classes & Styles
   ///////////////////
-  
+
   classPrefix: "bajs_", // prefix for CSS class names, e.g., bajs_containerDiv for containerDiv
   defaultClasses: {
     apply: true,        // (boolean) Should built-in CSS style sheet be applied?
     values: {}          // built-in CSS styling class strings -- removed for brevity
   },
 
-  inlineStyles: {       // inline style strings for various alert element parts 
+  inlineStyles: {       // inline style strings for various alert element parts
     containerDiv: "",
     alertBoxDiv: "",
     titleDiv: "",
@@ -451,13 +451,13 @@ var conf = {
     mainButtonsDiv: "",
     mainButtons: "",
     mainButtonsIcon: "",
-    mainButtonsText: ""       
-  },        
+    mainButtonsText: ""
+  },
 
   /////////
   // Misc
   /////////
-  
+
   iconsPath: "",          // path (relative or absolute) for title, content, and button icon image files
   startingZIndex: 1000,   // value set higher than largest z-index the app may use
   timeout: 0,             // alert's time to live in (ms) -- 0 means stay up until exited by user
@@ -477,16 +477,16 @@ This object defines the final position of the alert on the screen.  The attribut
 - `X`: the horizontal distance of the left edge of the alert from the left edge of the window.  Valid values are:
 
     - <*num*>: (e.g., **_15_**) a number, interpreted in pixels (`px`) which is the default unit
-    - "<*num*>": (e.g. **_"15"_**) a string containing a number (in pixels) 
-    - "<*num*>*px*": (e.g. **_"15px"_**) a string starting with a number in the `px` unit -- same as above 
+    - "<*num*>": (e.g. **_"15"_**) a string containing a number (in pixels)
+    - "<*num*>*px*": (e.g. **_"15px"_**) a string starting with a number in the `px` unit -- same as above
     - "<*num*>*rem*": (e.g., **_"5.2rem"_**) a string starting with a number in the `rem` unit
     - "<*num*>*%*": (e.g., **_"10%"_**) a string containing a number that represents the percentage of window width
     - **_"center"_** or **_"c"_**: horizontally centers the alert
-    
+
    >Note: Negative numbers have a special interpretation.  While a positive number, e.g. **_10_**, **_"10px"_**, or **_"10%"_** is measured from the
 left edge of the window, a negative number, e.g., **_-10_**, **_"-10px"_** or **_"-10%"_** is the distance of the the right edge of the alert box
 measured from the right side of the window.
-    
+
 - `Y`: the vertical distance measured from the top of the alert box to the top of the window.
 Values have the same interpretation as in `X` above,
 except replace horizontal with vertical,  width with height and left and right with top and down respectively.
@@ -494,7 +494,7 @@ except replace horizontal with vertical,  width with height and left and right w
 - `staggerX`: in cases where multiple consecutive alerts are displayed that have the same `X` and `Y` position,
 this attribute defines the horizontal offset
 used on the second and subsequent alerts to stack the alerts.  Valid values are:
-    - <*num*>: (e.g., **_5_**) a number (interpreted in pixels- `px`, which is the default unit) 
+    - <*num*>: (e.g., **_5_**) a number (interpreted in pixels- `px`, which is the default unit)
     - "<*num*>": (e.g., **_"5"_**) a string containing a number (in pixels)
     - "<*num*>*px*": (e.g., **_"5px"_**) a string starting with a number in the `px` unit -- same as above
     - "<*num*>*rem*": (e.g., **_"0.5rem"_**) a string starting with a number in the `rem` unit
@@ -503,10 +503,10 @@ used on the second and subsequent alerts to stack the alerts.  Valid values are:
     positive and negative for each new alert.
 
    >Note: Unlike in `X` and `Y`, negative numbers in `staggerX` and `staggerY` *do not* have a special interpretation here.
-While a positive number, e.g. **_10_**, **_"10px"_**, or **_"10%"_** 
+While a positive number, e.g. **_10_**, **_"10px"_**, or **_"10%"_**
 is the positive offset to the right of the left edge of the previous alert, a negative number, e.g., **_-10_**, **_"-10px"_** or **_"-10%"_**
 is the offset to the left of the left edge of the previous alert.
-    
+
 - `staggerY`: the vertical offset used on the second and subsequent alerts when multiple alerts are stacked.
 Values have the same interpretation as in `staggerX`,
 except replace horizontal with vertical,  width with height and left and right with top and down respectively.
@@ -517,42 +517,42 @@ A blank string **_""_** is interpreted as **_"0px"_**.
 In the following example, (upper left corner of) the alert is placed at **_50px_** from the left edge of the window, and **_4.2rem_**
 from the top of the window:
 
-##### Example: Positioning alerts to a fixed spot 
+##### Example: Positioning alerts to a fixed spot
 ```javascript
 // alert placed in a fixed position
 new BAlert("Hello World!", 0, null, null, {
-    position: {X:"50px", Y:"4.2rem"} 
+    position: {X:"50px", Y:"4.2rem"}
 }).display();
 ```
 In the following example, the alert is placed at **_10px_** off from the bottom right corner of the window:
 
-##### Example: Positioning alerts to a fixed spot 
+##### Example: Positioning alerts to a fixed spot
 ```javascript
 // alert placed close to bottom right corner
 new BAlert("Hello World!", 0, null, null, {
-    position: {X:"-10px", Y:"-10px"} 
+    position: {X:"-10px", Y:"-10px"}
 }).display();
 ```
 
 The following example completely aligns the center of the alert box with the center of the window:
 
-##### Example: Centering an alert 
+##### Example: Centering an alert
 ```javascript
 // centered alert
 new BAlert("Hello World!", 0, null, null, {
-    position: {X:"c", Y:"c"} 
+    position: {X:"c", Y:"c"}
 }).display();
 ```
 The following example creates three alerts that are centered horizontally.  The first one has a vertical distance of **_20%_**
 (of the height of the window) from the top of the screen.
 The second and third alerts offset themselves from the previous alert by **_5px_** horizontally and **_0.4rem_** vertically:
 
-##### Example: Stacking alerts 
+##### Example: Stacking alerts
 ```javascript
 // multiple alerts stacked with fixed offset from each other
 for (var i=1; i<=3; i++)
     new BAlert("Hello World; Alert #"+i, 0, null, null, {
-        position: {X:"c", Y:"20%", staggerX:"5px", staggerY:"0.4rem"} 
+        position: {X:"c", Y:"20%", staggerX:"5px", staggerY:"0.4rem"}
     }).display();
 ```
 
@@ -560,17 +560,17 @@ In the following example, we create 5 alerts. The first alert is centered horizo
 The subsequent alerts offset themselves from the previous one by **_5px_** vertically, but have a horizontal offset
 that alternates between **_10px_** and **_-10px_** (note the use of tilde **"~"** in `staggerX`):
 
-##### Example: Stacking and staggering multiple alerts 
+##### Example: Stacking and staggering multiple alerts
 ```javascript
 // multiple alerts stacked and staggered to left and right
 for (var i=1; i<=5; i++)
     new BAlert("Hello World; Alert #"+i, 0, null, null, {
-        position: {X:"c", Y:"4rem", staggerX:"~10px", staggerY:"5px"} 
+        position: {X:"c", Y:"4rem", staggerX:"~10px", staggerY:"5px"}
     }).display();
 ```
 
 
-### `conf.size` Attribute 
+### `conf.size` Attribute
 ---
 There is no such thing as `conf.size`. You may have noticed the absence of the `size` attribute in the configuration object.  This is intentional.
 Browsers along with the style sheets are in the best position to find the optimal size for the alerts.  So we
@@ -588,7 +588,7 @@ and is styled with the CSS class that has the default name **bajs\_contentIcon**
 This text is placed in the DOM **contentDiv** `<div>` inside a `<span>` with the name **contentText**
 and is styled with the CSS class name **bajs\_contentText**.
 
-- `raw`: It contains a preformatted HTML string as the message content of the alert.  If present, `text` and `icon` attributes are ignored, 
+- `raw`: It contains a preformatted HTML string as the message content of the alert.  If present, `text` and `icon` attributes are ignored,
  the **contentIcon** `<img>` and **contentText** `<span>` elements are not created and the value of this attribute is placed in **contentDiv**'s
 `innerHTML` as is.
 Note that since this is preformatted HTML, no CSS classes are used to style it.
@@ -598,7 +598,7 @@ If content is given as a string argument to `BAlert`, it is interpreted as the `
 
 So in the following example, the two statements are equivalent:
 
-##### Example: Passing content as a string, or an object with HTML attribute 
+##### Example: Passing content as a string, or an object with HTML attribute
 ```javascript
 // passing a string argument to BAlert
 new BAlert("Hello World").display();
@@ -609,7 +609,7 @@ In the above example, the content ("Hello World") is passed as a string or a con
 assumed to be a preformatted HTML string and is not styled using its corresponding class in CSS style sheet.
 But in the following, the content is passed using the `text` attribute and so it is styled using the corresponding CSS style sheet class:
 
-##### Example: Passing content as an object argument with text attribute 
+##### Example: Passing content as an object argument with text attribute
 ```javascript
 // text is styled
 new BAlert({ text:"Hello World" }).display();
@@ -618,13 +618,13 @@ The fact that we can pass any preformatted string as content to `BAlert` means t
 In the following example, an image (of _Santorini, Greece_) is shown to the
 users as the alert's content and the users are asked whether they likes it or not:
 
-##### Example: Using an image as content 
+##### Example: Using an image as content
 ```javascript
 // image as alert content
 var myImage = "<img src='/path/to/my/images/santorini.jpg' style='width:50px; height:50px;'>";
 new BAlert(myImage, 0, "Do you like Santorini?", [
     {text:"Yes", icon:"icon_yes", onClick: function() {/*user said yes*/}},
-    {text:"No",  icon:"icon_no",  onClick: function() {/*user said no*/}} 
+    {text:"No",  icon:"icon_no",  onClick: function() {/*user said no*/}}
 ]).display();
 ```
 Or we can use a video `iframe` as content:
@@ -642,13 +642,13 @@ var conf = {
     mainButtons: [
         {text:"Exit", icon:"icon_exit", onClick: function() {console.log("Exit was pushed"); }}
     ],
-  iconsPath: "./images/"       
+  iconsPath: "./images/"
 };
 
 new BAlert().setConf(conf).display();
 ```
-  
-  
+
+
 ### `conf.title` Attribute
 ---
 The `title` attribute is an object that contains the main content of the alert box title.  It has the following attributes:
@@ -662,14 +662,14 @@ and is styled with the CSS class that has the name default name **bajs\_titleTex
 - `raw`: It contains a preformatted HTML string as the title of the alert.
 If present, `text` and `icon` attributes are ignored, the **titleText** `<span>` and **titleIcon** `<img>` elements are not created, and
 the value of this attribute is placed in **titleDiv**'s `innerHTML` as is. Note that since this is preformatted HTML,
-no CSS classes are used to style it. 
+no CSS classes are used to style it.
 
 >Note: In the **"Quick Start"** section, we saw that title can be passed to `BAlert` as a string argument.
 If title is given as a string argument to `BAlert`, it is interpreted as the preformatted `raw` attribute.
 
 So in the following example, the two statements are equivalent:
 
-##### Example: Passing title as string, or an object with HTML attribute 
+##### Example: Passing title as string, or an object with HTML attribute
 ```javascript
 // passing the title ("My title") as a string argument or an object to BAlert
 new BAlert("Hello World", 0, "My title").display();
@@ -693,7 +693,7 @@ attribute, it is not styled because it is assumed to be a preformatted HTML stri
 ### `conf.mainButtons` Attribute
 ---
 This attribute is actually an array of button objects.  It is an array even if there is only one button.
-Each button object has the following attributes:  
+Each button object has the following attributes:
 - `text`: a text string that appears on the button as label.
 - `icon`: the name of the icon image file that appears on the button as label along with the `text`.
 - `raw`: a preformatted HTML string to use as button label.  If present, `text` and `icon` are ignored.  Note that
@@ -724,12 +724,12 @@ The  examples below shows how one can create alerts with one time use buttons.  
 the results of some operation.
 When user presses either of **Submit** or **Archive** buttons, the button dims and disables itself so it cannot be used again:
 
-##### Example: Self-disabling/dimming one-time use button 
+##### Example: Self-disabling/dimming one-time use button
 ```javascript
 // self disabling buttons
 new BAlert({text: "Please press Archive to save and/or press Submit to send the results"},
     0,
-    {text: "Operation Successful"}, 
+    {text: "Operation Successful"},
     [{
         text:"Archive",
         onClick: function() {/*do archiving*/},
@@ -748,12 +748,12 @@ new BAlert({text: "Please press Archive to save and/or press Submit to send the 
 The next example performs the same function, but uses the `selfRemove` attribute to remove the button completely after the first press.
 Notice how the other button rearranges itself:
 
-##### Example: Self-removing one-time use button 
+##### Example: Self-removing one-time use button
 ```javascript
 //self removing buttons
 new BAlert({text: "Please press Archive to save and/or press Submit to send the results"},
     0,
-    {text: "Operation Successful"}, 
+    {text: "Operation Successful"},
     [{
         text:"Archive",
         onClick: function() {/*do archiving*/},
@@ -772,13 +772,13 @@ In the next example, the same callback function is called by all buttons. The ca
 uses the button's `text` attribute to find out which button was pressed.  Note that there are always two arguments
 passed to the button callbacks, a reference to the alert object and a reference to the button that was pressed:
 
-##### Example: Shared callback, identifying the pushed button 
+##### Example: Shared callback, identifying the pushed button
 ```javascript
 // Figuring which button was pushed by the button's text attribute
 
 new BAlert({text: "Please press Archive to save or press Submit to send the results"},
     0,
-    {text: "Operation Successful"}, 
+    {text: "Operation Successful"},
     [{
         text:"Archive",
         onClick: function(alrt, btn) {buttonPushed(alrt, btn);}
@@ -810,7 +810,7 @@ The `getElement()` method will be explained later in
 the **"BAlert Methods"** section, but not unlike JavaScript's `getElementById()`,
 it basically returns a reference to the alert box' `<div>` in browser's DOM:
 
-##### Example: Change alert properties inside callbacks 
+##### Example: Change alert properties inside callbacks
 ```javascript
 // return a random hex color string of the form #AAA
 function getRandomColor() {
@@ -819,7 +819,7 @@ function getRandomColor() {
 }
 
 // using callbacks to change alert properties
-new BAlert({text: "Click to change alert's color"}, 0, null, 
+new BAlert({text: "Click to change alert's color"}, 0, null,
     [{
         text:"Change",
         keepAlert: true,
@@ -834,11 +834,11 @@ the result of an operation.  If confirmation is positive, delete is done and bot
 If confirmation is negative, we return to the original alert.  In all cases, a short (1.5 second) message is displayed to
 show what is being done.  Note the use of `inlineStyle` attribute to turn the *Delete* button text to red:
 
-##### Example: Nested alerts through callbacks 
+##### Example: Nested alerts through callbacks
 ```javascript
 //Button callback pops another alert to get confirmation
 var ba = new BAlert({text: "Choose Archive, Submit, or choose Delete to remove the results"},
-    0, {text:"Operation Successful"}, 
+    0, {text:"Operation Successful"},
     [{
         text:"Archive",
         onClick: function() {
@@ -858,9 +858,9 @@ var ba = new BAlert({text: "Choose Archive, Submit, or choose Delete to remove t
         keepAlert: true
     }]
 ).display();
-        
+
 function doConfirm(alrt) {
-    new BAlert({text: "Are you sure?"}, 0, {text:"Warning!"}, 
+    new BAlert({text: "Are you sure?"}, 0, {text:"Warning!"},
         [{
             text:"Yes",
             onClick: function() {
@@ -872,7 +872,7 @@ function doConfirm(alrt) {
             text:"No"
         }]
     ).display();
-} 
+}
 ```
 
 
@@ -880,15 +880,15 @@ function doConfirm(alrt) {
 ---
 The exit button object is what normally appears as an "X" on the top corner of the alerts, and when pressed, it
 forces the alerts to exit.  As a button, it support all the attributes we mentioned before under of **"`conf.mainButtons` Attribute"** section,
-but the following attributes are the ones that are most useful:  
+but the following attributes are the ones that are most useful:
 - `text`: a text string, resembling an "X" that appears on the exit button as label, e.g.  `"x"`, `"&times;"` or `"&#x2716;"`.
 - `icon`: the name of the icon image file that appears on the exit button as label.
-If present, `text` is ignored.  
+If present, `text` is ignored.
 - `raw`: a raw html string, hopefully resembling an "X", that appears on the exit button as label.  If present, `text` and `icon` are ignored.
 Note that this is considered a preformatted HTML string and therefore it is not styled with CSS styles.
 
-   >Note: If none of `text`, `icon` or `raw` are present a default text (`"x"`) character is used.   
-   
+   >Note: If none of `text`, `icon` or `raw` are present a default text (`"x"`) character is used.
+
 - `onClick`: a function that is called when the button is pressed or **_null_** if no callback.
 - `keepAlert`: a boolean (default: **_false_**); if set to **_true_**, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
 This is only useful if you want to manage the alert's exit through your own callback function.
@@ -899,7 +899,7 @@ and then managing the exit through your own `onClick` callback function which wo
 For example,
 if `inlineStyle` is set to `"float: left; color: red"`, the exit button "X" is turned red and is moved to the upper left corner of the alert box
 instead of the usual upper right.
-- `threshold`: is a positive integer number in milliseconds (default: **3000** or 3 seconds). See `visible` attribute below for its use.   
+- `threshold`: is a positive integer number in milliseconds (default: **3000** or 3 seconds). See `visible` attribute below for its use.
 - `visible`: a boolean or a function returning a boolean. If `visible` is a function, a reference to the alert object is passed to it as the argument.
 If `visible` evaluates to (or is)  **_true_**, it means that the exit button will be built and displayed.
 If **_false_**, no exit button will be constructed or displayed.
@@ -933,18 +933,18 @@ This object defines the **animation** behavior of the alert when it **starts**. 
     - **"center center"** is the same as **"center"** and it means animation starts from the center of the window
 
       >Note: There is only one space allowed in multi-word `dir` strings.  Any invalid `dir` value string is silently ignored
-      and defaults to **"none"**. 
+      and defaults to **"none"**.
 
     - **[X,Y]** is an array of X and Y coordinates from which the center of the alert box starts its display animation.
     X and Y take on the same values as defined under `position.X` and `position.Y` in **"`conf.position` Attribute"** section.
     Using **[X,Y]** along with `scale: 0` (explained below), and `getCenterPosition()` method can help create the effect that one
     alert is emerging from within the center of another alert or another DOM element (see animation [examples](http://vinoquiz.ddns.net/BAlert/index.php)).
-    
+
 
 - `delay`: an integer (default: **0**); an artificially induced delay (in ms) before the display action begins.
 - `scale`: a number that indicates the scale factor for the alert size before it starts.  A **0** means that the alert starts from a zero size,
 (or a single pixel) to its full size when the animation ends.  A **0.5** scale means the alert starts from half of its final size and grows to its final size
-by the time the animation ends.  Values outside of **0** and **1** are possible but not common.  A negative value flips the alert.  A value larger than **1** 
+by the time the animation ends.  Values outside of **0** and **1** are possible but not common.  A negative value flips the alert.  A value larger than **1**
 will start the alert from a large size and converges to the final size when the animation ends.
 - `rotate`: a number indicating the number of 360 degree rotations (spins) that the alert makes before it reaches its final position.
 A positive number rotates clockwise, a negative number rotates counter-clockwise.
@@ -971,7 +971,7 @@ expanding its size from a dot to full size and rotating it 1.5 times in one seco
 ```javascript
 // start animation
 new BAlert("Hello World!", 0, null, null, {
-    animStart: {duration:1000, dir:"top left", scale:0, rotate:1.5, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"top left", scale:0, rotate:1.5, func:"ease-in-out"}
 }).display();
 ```
 
@@ -989,68 +989,68 @@ In the following example, we add an `animExit` object definition to the previous
 causes the alert to exit by making a half rotation and falling to the
 center bottom of the screen and disappearing in 0.5 second, giving the impression that it is unhinging and falling into the abyss!
 
-##### Example: Animating alerts; exiting into abyss! 
+##### Example: Animating alerts; exiting into abyss!
 ```javascript
 new BAlert("Goodbye Cruel World", 0, null, null, {
-    animStart: {duration:500, dir:"top", scale:0, rotate:0, func:"ease-in-out"}, 
-    animExit:  {duration: 2000, dir:"bottom center", scale:0, rotate:0.5, func:"ease-in-out"} 
+    animStart: {duration:500, dir:"top", scale:0, rotate:0, func:"ease-in-out"},
+    animExit:  {duration: 2000, dir:"bottom center", scale:0, rotate:0.5, func:"ease-in-out"}
 }).display();
 ```
 In the following example, a cubic Bezier function is used for managing alert's motion timing.
 Alert animation starts slow, speeds at the end and comes to an immediate halt, giving the impression of snapping into place:
 
-##### Example: Animating alerts; using cubic-bezier for snapping alert to position 
+##### Example: Animating alerts; using cubic-bezier for snapping alert to position
 ```javascript
 new BAlert("You have received an urgent email", 0, "Email from Steve", null, {
     position:  {X: "center", Y: "20%"},
     animStart: {dir: "right", scale: 1, duration: 1000, func: "cubic-bezier(.91,.39,.92,.61)"},
-    animExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}           
+    animExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}
 }).display();
 ```
 
 More examples:
 
-##### Example: Animating alerts; similar effect to Windows 10 notifications 
+##### Example: Animating alerts; similar effect to Windows 10 notifications
 ```javascript
 new BAlert("You have received an urgent email", 0, "Email from Steve", null, {
     position:  {X: "-10px", Y: "-10px"},
     animStart: {dir: "right", scale: 1, duration: 1000, func: "ease-in"},
-    animExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}           
+    animExit:  {dir: "right", scale: 1, duration:  500, func: "ease-out"}
 }).display();
 ```
 
-##### Example: Animating alerts; helicoptering in and out 
+##### Example: Animating alerts; helicoptering in and out
 ```javascript
 new BAlert("Hello World!", 0, null, null, {
     position: {X:"center", Y:"20%"},
-    animStart: {duration:1000, dir:"top left", scale:0, rotate:3, func:"ease-in-out"}, 
-    animExit:  {duration: 500, dir:"top right", scale:0, rotate:3, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"top left", scale:0, rotate:3, func:"ease-in-out"},
+    animExit:  {duration: 500, dir:"top right", scale:0, rotate:3, func:"ease-in-out"}
 }).display();
 ```
 
-##### Example: Animating alerts; emerge and vanish in-place 
+##### Example: Animating alerts; emerge and vanish in-place
 ```javascript
 new BAlert("Hello World", 0, null, null, {
-    animStart: {duration:1000, dir:"none", scale:0, rotate:0, func:"ease-in-out"}, 
-    animExit:  {duration: 500, dir:"none", scale:0, rotate:0, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"none", scale:0, rotate:0, func:"ease-in-out"},
+    animExit:  {duration: 500, dir:"none", scale:0, rotate:0, func:"ease-in-out"}
 }).display();
 ```
 
-##### Example: Animating alerts; headline news 
+##### Example: Animating alerts; headline news
 ```javascript
 new BAlert("Allies Land in France", 0, "Headline News", null, {
     position: {X:"center", Y:"center"},
-    animStart: {duration: 2000, scale:0, rotate: 6, dir:"center"}, 
-    animExit:  {duration: 0} 
+    animStart: {duration: 2000, scale:0, rotate: 6, dir:"center"},
+    animExit:  {duration: 0}
 }).display();
 ```
 
-##### Example: Animating alerts; inflate on exit 
+##### Example: Animating alerts; inflate on exit
 ```javascript
 new BAlert("Allies Land in France", 0, "Headline News", null, {
     position: {X:"center", Y:"center"},
-    animStart: {duration:1000, dir:"none", scale:0, rotate:3, func:"ease-in-out"}, 
-    animExit:  {duration: 500, dir:"none", scale:4, rotate:0, func:"ease-in-out"} 
+    animStart: {duration:1000, dir:"none", scale:0, rotate:3, func:"ease-in-out"},
+    animExit:  {duration: 500, dir:"none", scale:4, rotate:0, func:"ease-in-out"}
 }).display();
 ```
 
@@ -1070,7 +1070,7 @@ Also, if there is no exit animation, then `onExitBegin` and `onExitEnd` are near
 - `onResize`: this function is called on a window **resize** or **orientationchange** (on mobile devices) event.
 Default is an internal function that calls the `move()` method and repositions the alert
 according to the `conf.position` values.  So, for example, if the alert was set to be at the center of the screen,
-(e.g., `position: {X:"center", Y:"center"}`), 
+(e.g., `position: {X:"center", Y:"center"}`),
 it is repositioned to remain at the
 center of the screen when the window is resized.  To disable this behavior, set this attribute to **_null_**.
 - `onTapOutside`: this function is called when user clicks or taps _outside_ of the alert box.  Default is an internal function
@@ -1103,7 +1103,7 @@ function setColor(alrt, color) {
 // use of tapOutside and other events
 new BAlert({text: "Hello world"}, 0, null, null,  {
   animStart: {dir: "top", scale: 0, duration: 1000, func: "ease-in"},
-  animExit:  {dir: "bottom", scale: 0, duration:  1000, func: "ease-out"},     
+  animExit:  {dir: "bottom", scale: 0, duration:  1000, func: "ease-out"},
   callbacks:
     {
       onDisplayBegin: function(alrt) { setColor(alrt, "blue");},
@@ -1117,7 +1117,7 @@ new BAlert({text: "Hello world"}, 0, null, null,  {
 
 ### `conf.classPrefix` Attribute
 ---
-Alert styles are normally defined by a set of classes in a `.css` style sheet file. 
+Alert styles are normally defined by a set of classes in a `.css` style sheet file.
 To minimize the possibility of name collision, the default name of the classes in `.css` style sheet that is used to style these elements
 is the same as the name of the element, prefixed by **"bajs\_"**.  For example,
 the name of the default `.css` class for **contentText** is **bajs\_contentText**.  The only exceptions are the main buttons and their corresponding
@@ -1163,8 +1163,8 @@ In the absence of a `.css` style sheet file, `conf.defaultClasses` internal CSS 
 for the alert.
 This object has two attributes:
 - `apply`: this boolean defines whether internal default classes should be used to build the class definitions for the alert or not.
-  >Note: `apply` must be set to **_false_** when you want to use a `.css` style sheet. If set to **_true_**, 
-`.css` classes are ignored, even if they are present. 
+  >Note: `apply` must be set to **_false_** when you want to use a `.css` style sheet. If set to **_true_**,
+`.css` classes are ignored, even if they are present.
 
 - `values`: an object with the same attribute names shown in the table in **"Alert DOM Structure"** section,
 and with CSS styling strings (e.g., `"color: red; margin: auto"`) as values. We discourage changing the value of this attribute.  Any style changes
@@ -1172,7 +1172,7 @@ should be done through `.css` style sheets.
 
 See **BAlert `setDefaultClasses()` Method** for more details.
 
-The default value for `apply` is **_true_** which means the internal `defaultClasses` will be applied to alerts by default. This is initially useful 
+The default value for `apply` is **_true_** which means the internal `defaultClasses` will be applied to alerts by default. This is initially useful
 when you do not have a `.css` style sheet to style the alerts, and you are just trying to test or debug the functionality of the alerts.
 So by setting this attribute to **_true_**, `BAlert` applies some minimal internal style classes to the alert.
 But once you get into production mode, this value must be set to **_false_** and `.css` style sheet file be used instead.
@@ -1200,11 +1200,11 @@ var localConf = {
     [{
       text: "Post",
       inlineStyle: "color: green; border-radius: 0;",
-      onClick: function() { console.log("Post was pushed"); } 
+      onClick: function() { console.log("Post was pushed"); }
     },{
-      text: "Exit", 
+      text: "Exit",
       inlineStyle: "color: red; border-radius: 0;",
-      onClick: function() { console.log("Exit was pushed"); } 
+      onClick: function() { console.log("Exit was pushed"); }
     }],
   inlineStyles: {contentDiv:  "background-color: green; color: white"},
 };
@@ -1244,7 +1244,7 @@ This is a number that is set higher than the largest `z-index` the app may use.
 Alerts need to appear on top of existing screens in the window and therefore have to have a `z-index`
 that is larger than the largest possible `z-index`
 in your app.  So you need to set this attribute to a large number that your app `z-index` would not exceed.
-First alert is generated by setting its `z-index` to `conf.startingZindex + 1` and 
+First alert is generated by setting its `z-index` to `conf.startingZindex + 1` and
 subsequent alerts will also increment this value by one.  When all alerts are exited, the counter resets.  Default is **1000**.
 It is unlikely that you have to change this value.
 
@@ -1252,7 +1252,7 @@ It is unlikely that you have to change this value.
 ### `conf.timeout` Attribute
 ---
 This is an integer indicating the alert's time to live in milliseconds.
-If set to a positive value the alert will automatically exit after the given number of milliseconds. 
+If set to a positive value the alert will automatically exit after the given number of milliseconds.
 Default is **0** which indicates that the alert will not auto exit.
 
 
@@ -1280,7 +1280,7 @@ We'll try to make that distinction for each method, when it is not clear.
 
 >Note: The key method for setting the configuration object is `setConf()` and the key method for building,
 displaying and animating the alerts (after it has been configured) is `display()`.
-Chances are that in most applications, these are the only two methods that one ever needs. 
+Chances are that in most applications, these are the only two methods that one ever needs.
 
 #### BAlert methods are cascadable
 For the most part, BAlert methods are cascadable, meaning that they can be placed one after the other on the same line
@@ -1312,7 +1312,7 @@ one or two argument:
 ##### Example: Using setConf() method with one argument
 ```javascript
 var ba = new BAlert();
-ba.setConf( {animExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );      
+ba.setConf({animExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );
 ```
 In fact, the entire configuration object `conf` that we saw in **"Configuration Object"** section can be be dropped in,
 in one shot, using this method.
@@ -1322,9 +1322,9 @@ in one shot, using this method.
 var conf = {
     position:  {X: "15px", Y: "-20%"},
     animStart: {dir: "left", scale: 1, duration: 1000, func: "ease-in"},
-    animExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}           
+    animExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}
 };
-new BAlert().setConf(conf).display();     
+new BAlert().setConf(conf).display();
 ```
 
 - `setConf(attrName, attrValue)` with two arguments: the configuration is passed with *attrName* and *attrValue*.  *attrName* is the name of
@@ -1333,7 +1333,7 @@ the **Configuration Object** attribute, and *attrValue* is the value being assig
 ##### Example: Using setConf() method with two arguments
 ```javascript
 var ba = new BAlert();
-ba.setConf("animExit" ,  {dir: "left", scale: 1, duration:  500, func: "ease-out"} );      
+ba.setConf("animExit" ,  {dir: "left", scale: 1, duration:  500, func: "ease-out"} );
 ```
 Note that in this method, the attribute name is enclosed in quotes.
 Also note that the *attrValue* itself may be an object as in the above example.
@@ -1348,10 +1348,10 @@ So the following two are equivalent:
 ```javascript
 var ba = new BAlert();
 
-ba.setConf( {animExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );
+ba.setConf({animExit: {dir: "left", scale: 1, duration:  500, func: "ease-out"} } );
 // is equivalent to
-ba.setConf( {animExit: {dir: "right", scale: 1} } );
-ba.setConf( {animExit: {duration:  500, func: "ease-out", dir: "left"} } );
+ba.setConf({animExit: {dir: "right", scale: 1} } );
+ba.setConf({animExit: {duration:  500, func: "ease-out", dir: "left"} } );
 
 ```
 
@@ -1374,7 +1374,7 @@ var als = ba.getConf("animStart");
 
 ### `BAlert.getDefaultClasses()` Method
 ---
-This method has no argument and returns a string in the same format as the `.css` style sheet. 
+This method has no argument and returns a string in the same format as the `.css` style sheet.
 The string contains the built-in CSS `defaultClasses` that are used to style the alerts in the absence of a formal `.css` style sheet.
 The output contains all the built-in CSS classes with the names that were mentioned in the table under **"Alert DOM Structure"** section. You
 can use the style classes returned by this method as a starting point for creating your formal `BAlert.css` style sheet.
@@ -1548,7 +1548,7 @@ ba.display();
 ### `BAlert.exit()` Method
 ---
 The `exit(delay)` method is the opposite of the `display()` method.  It forces the alert to gracefully exit,
-using animation if defined.  It also removes and cleans up event handlers.  
+using animation if defined.  It also removes and cleans up event handlers.
 The internal and browser `DOM` structure and its artifacts are completely removed.
 So after `exit()`, there will be no trace of the alert in the browser DOM, internal JavaScript `DOM` structure,
 or in window event handlers.
@@ -1562,7 +1562,7 @@ See the **Best Practices and Usage Notes** section for a description of various 
 
 ### `BAlert.move()` Method
 ---
-This method moves the alert box to a new location.  The method takes on zero, one, or two arguments: `move()`, `move([X,Y])`, or 
+This method moves the alert box to a new location.  The method takes on zero, one, or two arguments: `move()`, `move([X,Y])`, or
 `move(X,Y)`.
 
 The arguments, `X` and `Y`, have the same definitions that we saw for `conf.position.X` and `conf.position.Y` in **"`conf.position` Attribute"** section.
@@ -1592,7 +1592,7 @@ move the exit button (the "X" on the upper corner of the alert) from the default
 ```javascript
 //Using getElement() to manipulate DOM elements
 var ba = new BAlert({text: "Choose Archive, Submit, or Delete to remove the results"},
-    0, {text:"Operation Successful"}, 
+    0, {text:"Operation Successful"},
     [{
         text:"Archive",
         onClick: function() {/*do archiving*/}
@@ -1623,7 +1623,7 @@ In this example, the **Submit** button is disabled after the button is pushed:
 ```javascript
 //Using disable() to disable DOM elements
 var ba = new BAlert({text: "Choose Archive or Submit"},
-    0, {text:"Operation Successful"}, 
+    0, {text:"Operation Successful"},
     [{
         text:"Archive",
         onClick: function() {/*do archiving*/}
@@ -1722,7 +1722,7 @@ In the following example, the `getStructure()` method is used to display the DOM
       iconsPath: "./images"
     }
   ).display();
-  
+
   console.log(ba.getStructure());
 ```
 
@@ -1833,7 +1833,7 @@ on the JavaScript console.  An attempt is made to make debug messages helpful to
 - **n=1** displays the trace of activities inside BAlert as the alert is built, displayed and animated.
 - **n=2** dumps the alert's main **Configuration Object**.
 - **n=4** dumps alert's traversed browser DOM structure.
-- **n=8** dumps the alert's internal `defaultClasses` in form of `.css` class definitions shown 
+- **n=8** dumps the alert's internal `defaultClasses` in form of `.css` class definitions shown
 under **"BAlert `getDefaultClasses()` Method"** section.
 
 The above bit-positioned option numbers can be combined by adding their values, e.g., `setDebug(5)` outputs both the alert's activity traces and its
@@ -1865,7 +1865,7 @@ To remove the alert from browser's DOM, one can use the `exit()` method.
 
 ### `BAlert.merge()` Method
 ---
-The `merge(obj1, obj2)` method is a general purpose method. 
+The `merge(obj1, obj2)` method is a general purpose method.
 The method _merges_ obj2 into obj1 and returns a reference to the
 merged result. The method is recursive and handles nested objects as deep as necessary.
 if obj2 is not an object (i.e., it is an `integer`, `string`, or `boolean`), or if it is something implemented
@@ -1887,7 +1887,7 @@ in addition to a blank prefix to the property name
 before setting its value, ensuring the property value is set correctly regardless of the browser type.
 
 This method should only be used in cases where the property
-has a different prefix for different browser types. 
+has a different prefix for different browser types.
 
 In the example below, the color (not the brightness) of the button label (which could be text or icon or both)
 is changed to gray scale when the button is pushed:
@@ -1896,7 +1896,7 @@ is changed to gray scale when the button is pushed:
 ```javascript
 // Note: using btn.style.filter = "grayscale(1)" may only work for some browsers
 var ba = new BAlert({text: "Choose Archive or Submit"},
-    0, {text:"Operation Successful"}, 
+    0, {text:"Operation Successful"},
     [{
         text:"Archive",
         onClick: function(alrt, btn) {
@@ -1958,13 +1958,13 @@ In general, we have seen styling in three different contexts:
   1. Styling using a `.css` style sheet
   2. Built-in default classes (`conf.defaultClasses`) that can be used in the absence of `.css` style sheet
   3. Individual element local inline styling using the `inlineStyle` or `inlineStyles[elm]` attribute of the element
-  
+
 (1) & (2) should not exist together. In fact using (2) will turn off (1). Also (3) overwrites (1) and (2) both for the styled attribute with the same name.
 So it is good practice to turn the built-in styling (2) off, use a `.css` style sheets (1), and then use occasional `inlineStyle` inline styling (3).
 See **"`conf.inlineStyles` Attribute"**, **"Alert DOM Structure"** and **"BAlert `getDefaultClasses()` Method"** sections
 for more detail.
 
-  
+
 All of the above styling is done before the alert is built/displayed and the browser DOM element exists.  After the alert is built or displayed, the only way
 to change its style is by getting a reference to it's browser DOM element using `getElement()` method, and change it's style using the usual JavaScript methods.
 In the following example, the color of the content area of the alert is changed to *blue* after it has been built and displayed:
@@ -1981,7 +1981,7 @@ ba.getElement("contentDiv").style.backgroundColor = "blue";
 As we have seen, **content**, **title**, **exitButton** and **mainButtons** can  have either a `raw` or a `text` attribute.
 Both attributes can have HTML strings as values.
 The main difference is that the `text` attribute values are placed inside a `<span>` and styled using the corresponding CSS styles,
-whereas `raw` attribute values are placed directly in the parent container using the `.innerHTML` attribute and 
+whereas `raw` attribute values are placed directly in the parent container using the `.innerHTML` attribute and
 are not styled.
 
 It is best practice to use the `text` attribute when entering simple text, e.g., `text: "File not found"`, or
@@ -2008,7 +2008,7 @@ if the users do not like the app, they are not sent to the store front and the a
 In the example below, the `slideFromLeftConf` is a general configuration object that slides the alerts in and out from the bottom left side of the screen
 and is used by all three dialogues, so they have the same look and feel.  The local additions (i.e., the buttons) are
  made using the `setConf()` method:
- 
+
 ##### Example: "Do you like this app?"
 ```javascript
 function getRatingFromUser() {
@@ -2017,39 +2017,39 @@ function getRatingFromUser() {
     var slideFromLeftConf = {
         position:  {X: "15px", Y: "-20%"},
         animStart: {dir: "left", scale: 1, duration: 1000, func: "ease-in"},
-        animExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}           
+        animExit:  {dir: "left", scale: 1, duration:  500, func: "ease-out"}
     };
-    
+
     // ask user if they like the app
     function doYouLikeThisApp() {
         var ba = new BAlert({text:"Do you like this app?"},
             0, null, null, slideFromLeftConf );
         ba.setConf('mainButtons', [
-            {text:"Yes", onClick: function(){doRateUs();} },
-            {text:"No",  onClick: function(){doTellUsWhy();} }    
+            {text:"Yes", onClick: function() {doRateUs();} },
+            {text:"No",  onClick: function() {doTellUsWhy();} }
         ]).display();
     }
-    
+
     // ask user to tell us why they don't like the app
     function doTellUsWhy() {
         var ba = new BAlert({text:"Sorry to hear that. Please tell us why."},
             0, null, null, slideFromLeftConf);
         ba.setConf('mainButtons', [
-            {text:"Tell Us", onClick: function(){/*get feedback*/} }
+            {text:"Tell Us", onClick: function() {/*get feedback*/} }
         ]).display();
     }
-    
+
     // ask user to rate the app at the store
     function doRateUs() {
         var ba = new BAlert({text:"Please give us a rating at the store."},
             0, null, null, slideFromLeftConf);
         ba.setConf('mainButtons', [
-            {text:"Rate Us", onClick: function(){/*send user to store*/} } 
+            {text:"Rate Us", onClick: function() {/*send user to store*/} }
         ]).display();
     }
-    
-    doYouLikeThisApp();   
-} 
+
+    doYouLikeThisApp();
+}
 ```
 
 # Internal Structures
@@ -2087,6 +2087,3 @@ from *github* for code highlighting.
 
 # Contact
 You can reach me through <balertjs@gmail.com>.  Comments and feedbacks are welcomed.
-
-
-
