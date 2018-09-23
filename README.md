@@ -905,7 +905,7 @@ If `visible` evaluates to (or is)  **_true_**, it means that the exit button wil
 If **_false_**, no exit button will be constructed or displayed.
 
   The default value of the `visible` attribute is an internal function that is set to return
-**_true_** if timeout is non-zero and less than or equal to `threshold` (default 3 seconds).
+**_false_** if timeout is non-zero and less than or equal to `threshold` (default 3 seconds).
 The logic behind this internal function is that if the alert is auto exiting in 3 seconds or less, there
 is no need for an exit button.
 
