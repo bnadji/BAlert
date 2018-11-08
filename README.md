@@ -83,11 +83,11 @@ You start using `BAlert` by first including the source file inside the HTML `<he
 ##### Example: including BAlert in the HTML header
 ```html
 <!-- For development and testing: -->
-<script src='/path/to/js/files/BAlert/BAlert-debug.js' type='text/javascript' charset='UTF-8'></script>
+<script src='/path/to/js/files/BAlert/BAlert-debug.js'></script>
 <!-- Or, for production: -->
-<script src='/path/to/js/files/BAlert/BAlert-mini.js' type='text/javascript' charset='UTF-8'></script>
+<script src='/path/to/js/files/BAlert/BAlert-mini.js'></script>
 <!-- Or, for production, really small gzipped footprint: -->
-<script src='/path/to/js/files/BAlert/BAlert-mini.js.gz' type='text/javascript' charset='UTF-8'></script>
+<script src='/path/to/js/files/BAlert/BAlert-mini.js.gz'></script>
 ```
 
 You can create alerts by creating a new instance of BAlert:
@@ -1744,7 +1744,7 @@ require one (e.g., `<img src=...></img>`).
            id= 'titleDiv_A1'
            class= 'bajs_titleDiv'>
            <IMG
-               name= 'titleIcon'
+               alt= ''
                id= 'titleIcon_A1'
                class= 'bajs_titleIcon'
                src= './images/icon_warning'>
@@ -1758,7 +1758,7 @@ require one (e.g., `<img src=...></img>`).
                id= 'exitButton_A1'
                class= 'bajs_exitButton'>
                <IMG
-                   name= 'exitButtonIcon'
+                   alt= ''
                    id= 'exitButtonIcon_A1'
                    class= 'bajs_exitButtonIcon'
                    src= './images/icon_exit'>
@@ -1783,7 +1783,7 @@ require one (e.g., `<img src=...></img>`).
                id= 'mainButtons0_A1'
                class= 'bajs_mainButtons'>
                <IMG
-                   name= 'mainButtonsIcon0'
+                   alt= ''
                    id= 'mainButtonsIcon0_A1'
                    class= 'bajs_mainButtonsIcon'
                    src= './images/icon_abort'>
@@ -1798,7 +1798,7 @@ require one (e.g., `<img src=...></img>`).
                id= 'mainButtons1_A1'
                class= 'bajs_mainButtons'>
                <IMG
-                   name= 'mainButtonsIcon1'
+                   alt= ''
                    id= 'mainButtonsIcon1_A1'
                    class= 'bajs_mainButtonsIcon'
                    src= './images/icon_retry'>
@@ -1922,9 +1922,9 @@ code stripped:
 ##### Example: using minified version of BAlert-mini.js
 ```html
 <!-- minified BAlert for production -->
-<script src='/path/to/js/files/BAlert/BAlert-mini.js' type='text/javascript' charset='UTF-8'></script>
+<script src='/path/to/js/files/BAlert/BAlert-mini.js'></script>
 <!-- really small minified and compressed BAlert for production -->
-<script src='/path/to/js/files/BAlert/BAlert-mini.js.gz' type='text/javascript' charset='UTF-8'></script>
+<script src='/path/to/js/files/BAlert/BAlert-mini.js.gz'></script>
 ```
 ### Sequence of BAlert's Internal Activities
 ---
