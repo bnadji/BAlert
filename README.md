@@ -912,7 +912,8 @@ is no need for an exit button.
 
 ### `conf.animStart` Attribute
 ---
-This object defines the **animation** behavior of the alert when it **starts**.  It has several attributes:
+This object defines the **animation** behavior of the alert when it **starts**.  A falsey value (e.g. **null**) means no animation.
+This object has several attributes:
 - `duration`: a number indicating the length of time (in ms) that it takes for the alert to appear.  A **_0_** indicates no animation.
 - `dir`: a string (or an array) indicating the direction from which the alert enters the visible screen.  The accepted values are:
 
@@ -980,7 +981,8 @@ See more examples in the next section.
 
 ### `conf.animExit` Attribute
 ---
-This object defines the **animation** behavior of the alert when it **exits**.  The attribute have similar interpretation to that of `animStart` above,
+This object defines the **animation** behavior of the alert when it **exits**.  A falsey value (e.g. **null**) means no animation.
+The attribute have similar interpretation to that of `animStart` above,
 but as applied to the exit behavior of the alert.  For example, the `scale` attribute defines the final size factor of the alert at the end of
 its exit animation, the `dir` attribute defines the exit direction of the alert,
 and the `delay` attribute defines the induced delay before the exit action begins.
@@ -1683,20 +1685,21 @@ support the main buttons' `selfRemove` attribute mentioned in **"`conf.mainButto
 ### `BAlert.getSize()` Method
 ---
 The `getSize(elm)` is a general purpose method. It returns an array of two numbers **[width, height]** that represent the
-width and height of the browser element `elm` in pixels. If `elm` is omitted, alert box element is assumed.
+width and height of the browser element `elm` in pixels.
+If `elm` is omitted, alert box element is assumed.
 
 
 ### `BAlert.getPosition()` Method
 ---
-The `getPosition()`  returns an array of two numbers **[left, top]** that represent the
-distance (in pixels) of the upper left corner of the alert box from the left edge and top edge of the window respectively.
-
+The `getPosition(elm)` is a general purpose method. It returns an array of two numbers **[left, top]** that represent the
+distance (in pixels) of the upper left corner of the browser element `elm` from the left edge and top edge of the window respectively.
+If `elm` is omitted, alert box element is assumed.
 
 ### `BAlert.getCenterPosition()` Method
 ---
-The `getCenterPosition()`  returns an array of two numbers **[x, y]** that represent the
-distance (in pixels) of the center of the alert box from the left edge and top edge of the window respectively.
-
+The `getCenterPosition(elm)` is a general purpose method. It returns an array of two numbers **[x, y]** that represent the
+distance (in pixels) of the center of the browser element `elm` from the left edge and top edge of the window respectively.
+If `elm` is omitted, alert box element is assumed.
 
 ### `BAlert.getStructure()` Method
 ---
