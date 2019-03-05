@@ -354,6 +354,10 @@ var conf = {
     staggerX: "~5px",   // horizontal distance of alerts from each other when stacking alerts
     staggerY: "5px"     // vertical distance of alerts from each other when stacking alerts
   },
+  size : {
+    X: 0,               // final width of the alert.  A 0 (default) means let the system decide
+    Y: 0                // final height of the alert.  A 0 (default) means let the system decide
+  }
   content:  {
     icon: "",           // alert's content icon image file name
     text: "",           // alert's content text
@@ -480,7 +484,7 @@ This object defines the final position of the alert on the screen.  The attribut
     - "<*num*>": (e.g. **_"15"_**) a string containing a number (in pixels)
     - "<*num*>*px*": (e.g. **_"15px"_**) a string starting with a number in the `px` unit -- same as above
     - "<*num*>*rem*": (e.g., **_"5.2rem"_**) a string starting with a number in the `rem` unit
-    - "<*num*>*%*": (e.g., **_"10%"_**) a string containing a number that represents the percentage of window width
+    - "<*num*>*%*": (e.g., **_"10%"_**) a string containing a number followed by a "%" that represents the percentage of window width
     - **_"center"_** or **_"c"_**: horizontally centers the alert
 
    >Note: Negative numbers have a special interpretation.  While a positive number, e.g. **_10_**, **_"10px"_**, or **_"10%"_** is measured from the
@@ -572,11 +576,35 @@ for (var i=1; i<=5; i++)
 
 ### `conf.size` Attribute
 ---
-There is no such thing as `conf.size`. You may have noticed the absence of the `size` attribute in the configuration object.  This is intentional.
-Browsers along with the style sheets are in the best position to find the optimal size for the alerts.  So we
-do not explicitly define them.  You can, however, define alert *height* and *width* through CSS style classes or inline styling, or use style
-sheet class attributes such as *max-width* and *max-height* to control the size.
+This object defines the final size of the alert. `size` is generally not used since
+browsers along with the stylesheets are in the best position to find the optimal size for the alerts.  So it is best not
+to explicitly define the size.
 
+`size` has two attributes:
+- `X`: the final width of the alert:
+
+    - <*num*>: (e.g., **_150_**) a number, interpreted in pixels (`px`) which is the default unit
+    - "<*num*>": (e.g. **_"150"_**) a string containing a number (in pixels)
+    - "<*num*>*px*": (e.g. **_"150px"_**) a string starting with a number in the `px` unit -- same as above
+    - "<*num*>*rem*": (e.g., **_"15.2rem"_**) a string starting with a number in the `rem` unit
+    - "<*num*>*%*": (e.g., **_"80%"_**) a string containing a number followed by a "%" that represents the percentage of window width
+
+- `Y`: the final height of the alert:
+    The values for `Y` are similar to the `X` dimension above, but as it applies to the height dimension.
+    For example **_"80%"_** implies 80% of the window height.
+
+>Note: If the size is defined, you have to make sure the alert content fits into the given size.
+At a minimum, the alert stylesheet should define the
+appropriate `overflow` attributes to provide scrollbars if the content exceeds the size.
+
+##### Example: defining the size of the alert
+```javascript
+// alert size (w,h) defined
+new BAlert("Hello World!", 0, null, null, {
+    position: {X:"50px", Y:"4.2rem"},
+    size: {X:"100px", Y:"15rem"}
+}).display();
+```
 
 ### `conf.content` Attribute
 ---
@@ -887,7 +915,7 @@ If present, `text` is ignored.
 - `raw`: a raw html string, hopefully resembling an "X", that appears on the exit button as label.  If present, `text` and `icon` are ignored.
 Note that this is considered a preformatted HTML string and therefore it is not styled with CSS styles.
 
-   >Note: If none of `text`, `icon` or `raw` are present a default text (`"x"`) character is used.
+   >Note: If none of `text`, `icon` or `raw` are present the (`"&times;"`) character is used.
 
 - `onClick`: a function that is called when the button is pressed or **_null_** if no callback.
 - `keepAlert`: a boolean (default: **_false_**); if set to **_true_**, it keeps the alert up (i.e., alert does not exit) when the button is pressed.
@@ -1685,21 +1713,20 @@ support the main buttons' `selfRemove` attribute mentioned in **"`conf.mainButto
 ### `BAlert.getSize()` Method
 ---
 The `getSize(elm)` is a general purpose method. It returns an array of two numbers **[width, height]** that represent the
-width and height of the browser element `elm` in pixels.
-If `elm` is omitted, alert box element is assumed.
+width and height of the browser element `elm` in pixels. If `elm` is omitted, alert box element is assumed.
 
 
 ### `BAlert.getPosition()` Method
 ---
-The `getPosition(elm)` is a general purpose method. It returns an array of two numbers **[left, top]** that represent the
-distance (in pixels) of the upper left corner of the browser element `elm` from the left edge and top edge of the window respectively.
-If `elm` is omitted, alert box element is assumed.
+The `getPosition()`  returns an array of two numbers **[left, top]** that represent the
+distance (in pixels) of the upper left corner of the alert box from the left edge and top edge of the window respectively.
+
 
 ### `BAlert.getCenterPosition()` Method
 ---
-The `getCenterPosition(elm)` is a general purpose method. It returns an array of two numbers **[x, y]** that represent the
-distance (in pixels) of the center of the browser element `elm` from the left edge and top edge of the window respectively.
-If `elm` is omitted, alert box element is assumed.
+The `getCenterPosition()`  returns an array of two numbers **[x, y]** that represent the
+distance (in pixels) of the center of the alert box from the left edge and top edge of the window respectively.
+
 
 ### `BAlert.getStructure()` Method
 ---
