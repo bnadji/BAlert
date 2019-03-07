@@ -362,6 +362,7 @@ var conf = {
     icon: "",           // alert's content icon image file name
     text: "",           // alert's content text
     raw: "",            // alert's content raw html -- if given, text and icon are ignored
+    size: {X:0, Y:0}    // alert content DIV width and height -- A 0 means let the system decide
   },
   title: {
     icon: "",           // alert's title icon image file name
@@ -578,9 +579,7 @@ for (var i=1; i<=5; i++)
 ---
 This object defines the final size of the alert. `size` is generally not used since
 browsers along with the stylesheets are in the best position to find the optimal size for the alerts.  So it is best not
-to explicitly define the size.
-
-`size` has two attributes:
+to explicitly define the size. `size` has two attributes:
 - `X`: the final width of the alert:
 
     - <*num*>: (e.g., **_150_**) a number, interpreted in pixels (`px`) which is the default unit
@@ -590,7 +589,7 @@ to explicitly define the size.
     - "<*num*>*%*": (e.g., **_"80%"_**) a string containing a number followed by a "%" that represents the percentage of window width
 
 - `Y`: the final height of the alert:
-    The values for `Y` are similar to the `X` dimension above, but as it applies to the height dimension.
+    The values for `Y` are similar to the `X` above, but as it applies to the height dimension.
     For example **_"80%"_** implies 80% of the window height.
 
 >Note: If the size is defined, you have to make sure the alert content fits into the given size.
@@ -620,11 +619,32 @@ and is styled with the CSS class name **bajs\_contentText**.
  the **contentIcon** `<img>` and **contentText** `<span>` elements are not created and the value of this attribute is placed in **contentDiv**'s
 `innerHTML` as is.
 Note that since this is preformatted HTML, no CSS classes are used to style it.
-
 >Note: In the **"Quick Start"** section, we saw that message content can be passed to `BAlert` as a string argument.
 If content is given as a string argument to `BAlert`, it is interpreted as the `conf.content.raw` value.
 
-So in the following example, the two statements are equivalent:
+
+- `size`: This attribute is best left undefined since
+browsers along with the stylesheets are in the best position to find the optimal size for the alerts content area.
+`size` is an object defining the width and height of the content (`DIV`) of the alert.  It has two attributes:
+    - `X`: the final width of the alert content area:
+
+        - <*num*>: (e.g., **_100_**) a number, interpreted in pixels (`px`) which is the default unit
+        - "<*num*>": (e.g. **_"100"_**) a string containing a number (in pixels)
+        - "<*num*>*px*": (e.g. **_"100px"_**) a string starting with a number in the `px` unit -- same as above
+        - "<*num*>*rem*": (e.g., **_"10rem"_**) a string starting with a number in the `rem` unit
+        - "<*num*>*%*": (e.g., **_"60%"_**) a string containing a number followed by a "%" that represents the percentage of window width
+
+    - `Y`: the final height of the alert content area:
+        The values for `Y` are similar to the `X`  above, but as it applies to the height dimension.
+        For example **_"60%"_** implies 80% of the window height.
+
+>Note: If the content size is defined, you have to make sure the alert content fits into the given size.
+At a minimum, the alert stylesheet should define the
+appropriate `overflow` attributes to provide scrollbars if the content exceeds the size.
+
+
+
+In the following example, the two statements are equivalent:
 
 ##### Example: Passing content as a string, or an object with HTML attribute
 ```javascript
@@ -656,6 +676,7 @@ new BAlert(myImage, 0, "Do you like Santorini?", [
 ]).display();
 ```
 Or we can use a video `iframe` as content:
+##### Example: Using a video as content
 ```javascript
 // An alert with video content
 var video = '<iframe style="width:70vw; height:25vw" src="https://www.youtube.com/embed/SEQZiElLp-E" ' +
@@ -674,6 +695,13 @@ var conf = {
 };
 
 new BAlert().setConf(conf).display();
+```
+##### Example: defining the size of the alert content area
+```javascript
+// alert content area size (w,h) defined
+new BAlert({text: "Hello World!", size: {X:"50px", Y:"30%"}} , 0, null, null, {
+    position: {X:"50px", Y:"4.2rem"},
+}).display();
 ```
 
 
