@@ -642,8 +642,6 @@ browsers along with the stylesheets are in the best position to find the optimal
 At a minimum, the alert stylesheet should define the
 appropriate `overflow` attributes to provide scrollbars if the content exceeds the size.
 
-
-
 In the following example, the two statements are equivalent:
 
 ##### Example: Passing content as a string, or an object with HTML attribute
